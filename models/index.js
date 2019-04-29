@@ -1,4 +1,4 @@
 module.exports = {
   User: require('./User'),
-  NewSale: require ('./NewSale')
+  AddSale: require ('./AddSale'),
 };
