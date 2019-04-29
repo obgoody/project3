@@ -55,6 +55,19 @@ const AdsaleSchema = new Schema({
         alt: {type: String}
     }
   ],
+  adDate:[
+    {
+        type : Date,
+        required: true,
+        afterTime:{
+          type : Date,
+          required: true,  
+        },
+        beforeTime:{
+          type : Date,
+        }      
+      }
+  ],
   createdAt: {
     type: Date,
     default: Date.now
