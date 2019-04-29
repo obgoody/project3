@@ -70,9 +70,15 @@ app.post('/api/addsale', (req, res) => {
       state: req.body.state,
       zip: req.body.zip
     },
-    start: req.body.start,
-    end: req.body.end,
-    image: req.body.image
+    addDate: {
+      date: req.body.date,
+      startTime: req.body.startTime,
+      endTime: req.body.endTime
+    },
+    images: {
+      url: req.body.url,
+      alt: req.body.alt
+    }
   })
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
