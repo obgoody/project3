@@ -58,6 +58,26 @@ app.get('/api/user/:id', isAuthenticated, (req, res) => {
   }).catch(err => res.status(400).send(err));
 });
 
+// Add Garage Sale Route
+app.post('/api/addsale', (req, res) => {
+  db.AddSale.create({
+    title: req.body.title,
+    description: req.body.description,
+    address: {
+      line1: req.body.line1,
+      line2: req.body.line2,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip
+    },
+    start: req.body.start,
+    end: req.body.end,
+    image: req.body.image
+  })
+    .then(data => res.json(data))
+    .catch(err => res.status(400).json(err));
+});
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
