@@ -7,5 +7,8 @@ export default {
   // sign up a user to our service
   signUpUser: (username, email, password) => {
     return axios.post('api/signup', {username: username, email: email, password: password});
+  },
+  search: (search) => {
+    return axios.get("/sales", search);
   }
 };

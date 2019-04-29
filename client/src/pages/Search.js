@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import API from "../utils/API";
 import './Search.css';
 
 
@@ -8,7 +9,7 @@ class Search extends Component {
     }
 
     handleInputChange = event => {
-        console.log(event.target);
+        // console.log(event.target);
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -17,7 +18,14 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        alert(`Searching for garage around this zip code: ${this.state.search}`)
+        alert(`Searching for garage around this zip code: ${this.state.search}`);
+        API.search(this.state.search)
+        .then(response => {
+            console.log(response.data);
+            this.setState({
+                search: ""
+            })    
+        })
     }
 
     render() {
