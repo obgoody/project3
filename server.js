@@ -59,7 +59,7 @@ app.get('/api/user/:id', isAuthenticated, (req, res) => {
 });
 
 // Getting garage sales
-app.get("/sales", (req, res) => {
+app.get("/api/sales", (req, res) => {
   db.AddSale
     .find({ zip: req.body.zip })
     .then(data => res.json(data));

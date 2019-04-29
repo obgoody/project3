@@ -9,6 +9,6 @@ export default {
     return axios.post('api/signup', {username: username, email: email, password: password});
   },
   search: (search) => {
-    return axios.get("/sales", search);
+    return axios.get("/api/sales", search);
   }
 };
