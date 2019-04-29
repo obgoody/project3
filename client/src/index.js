@@ -12,6 +12,8 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import Search from './pages/Search';
 
 // Here is if we have an id_token in localStorage
 if(localStorage.getItem("id_token")) {
@@ -27,6 +29,8 @@ ReactDOM.render(
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/search" component={Search} />
         </div>
     </Router>
     , document.getElementById('root')
