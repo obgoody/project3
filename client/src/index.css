@@ -11,8 +11,8 @@ body {
 }
 .footer {
   position: absolute;
-  min-height: vh100;
   left: 0;
+  min-height: vh100;
   bottom: 0;
   width: 100%;
   background-color: grey;

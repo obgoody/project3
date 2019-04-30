@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Router, Route, Link } from 'react-router-dom';
 import AuthService from '../AuthService';
 
 class Navbar extends Component {
@@ -13,11 +13,14 @@ class Navbar extends Component {
             return (
                 <ul className="navbar-nav">
                     <li className="nav-item">
+                        <Link className="nav-link" to="/search">Search for garage sales</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link className="nav-link" to="/profile">Profile</Link>
                     </li>
                     <li className="nav-item">
                         {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-                        <a className="nav-link" href="/" onClick={() => this.Auth.logout()}>Logout</a>
+                        <a className="nav-link" href="/login" onClick={() => this.Auth.logout()}>Logout</a>
                     </li>
                 </ul>
             );
@@ -42,7 +45,7 @@ class Navbar extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Garage Sale Finder</Link>
+                    <Link className="navbar-brand" to="/search">Garage Sale Finder</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
