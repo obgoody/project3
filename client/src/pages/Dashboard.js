@@ -42,9 +42,6 @@ class Dashboard extends Component {
                 </div>
             </div>
 
-            <div className="footer">
-                <p>Footer</p>
-            </div>
             </wrapper>
         )
 
