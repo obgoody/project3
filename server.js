@@ -58,26 +58,24 @@ app.get('/api/user/:id', isAuthenticated, (req, res) => {
   }).catch(err => res.status(400).send(err));
 });
 
-// Getting garage sales
-app.get("/api/sales", (req, res) => {
+// Getting garage sales route depending on zip code
+app.get("/api/sales/:zip", (req, res) => {
+  console.log(`request${req.body.zip}`);
   db.AddSale
-    .find({ zip: req.body.zip })
+    .find({zip: req.params.zip})
     .then(data => res.json(data));
 })
 
-
-// Add Garage Sale Route
+// Add garage sale route
 app.post('/api/addsale', (req, res) => {
   db.AddSale.create({
     title: req.body.title,
     description: req.body.description,
-    address: {
-      line1: req.body.line1,
-      line2: req.body.line2,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip
-    },
+    line1: req.body.line1,
+    line2: req.body.line2,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
     addDate: {
       date: req.body.date,
       startTime: req.body.startTime,

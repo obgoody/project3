@@ -13,40 +13,38 @@ const AddSaleSchema = new Schema({
     required: true,
     trim: true
   },
-  address: {
-    line1: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    line2: {
-      type: String,
-      trim: true,
-    },
-    city: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    state: {
-      type: String,
-      uppercase: true,
-      required: true,
-      enum: statesArray
-    },
-    zip: {
-      type: String,
-      required: true,
-      minimum: 10000,
-      maximum: 99999,
-      trim: true,
-    },
+  line1: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  line2: {
+    type: String,
+    trim: true,
+  },
+  city: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  state: {
+    type: String,
+    uppercase: true,
+    required: true,
+    enum: statesArray
+  },
+  zip: {
+    type: Number,
+    required: true,
+    minimum: 10000,
+    maximum: 99999,
+    trim: true
   },
   addDate: [
     {
-      date:{
+      date: {
         type: Date,
-        required: true,  
+        required: true,
       },
       startTime: {
         type: Date,
@@ -60,11 +58,11 @@ const AddSaleSchema = new Schema({
   ],
   images: [
     {
-      url: { 
-        type: String 
+      url: {
+        type: String
       },
-      alt: { 
-        type: String 
+      alt: {
+        type: String
       }
     }
   ],
