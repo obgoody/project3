@@ -10,11 +10,18 @@ body {
   text-align: center;
 }
 .footer {
-  position: fixed;
+  position: absolute;
+  min-height: vh100;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: grey;
   color: white;
   text-align: center;
+}
+
+.saleCard{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }

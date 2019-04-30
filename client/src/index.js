@@ -15,6 +15,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
+import Sale from './pages/Sale';
 
 
 
@@ -34,6 +35,7 @@ ReactDOM.render(
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/search" component={Search} /> 
+            <Route exact path="/sale" component={Sale} />
             
                 <Footer />         
         </div>
