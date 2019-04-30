@@ -25,7 +25,7 @@ const UserSchema = new Schema({
   sales: [
     {
       type: Schema.Types.ObjectId,
-      ref: "NewSale"
+      ref: "AddSale"
     }
   ],
   createdAt: {

@@ -10,8 +10,9 @@ body {
   text-align: center;
 }
 .footer {
-  position: fixed;
+  position: absolute;
   left: 0;
+  min-height: vh100;
   bottom: 0;
   width: 100%;
   background-color: grey;
