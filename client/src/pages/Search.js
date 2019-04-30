@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
 import './Search.css';
+// import GoogleMapReact from 'google-map-react'
+
 
 
 class Search extends Component {
@@ -44,7 +46,7 @@ class Search extends Component {
                 </form>
                 <hr />
                 <div className="text-center">
-                    <iframe className="mapEmbed" tlte="mapEmbedFrame" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13401.26116667496!2d-117.23820484999999!3d32.889831199999996!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1556567265635!5m2!1sen!2sus"></iframe>
+                    <iframe className="mapEmbed" title="mapEmbed" style={{ width: 800, height: 500 }} src="https://www.google.com/maps/embed/v1/place?q=UCSD&key=AIzaSyDoSB5s5IZ3NR2592EGVJy2j4EZ5H7ZjP4"></iframe>
                 </div>
 
                 <ul className="list-group">
@@ -63,12 +65,6 @@ class Search extends Component {
     }
 }
 
-// function initMap() {
-//     var UCSD = { lat: 32, lng: -117 };
-//     var map = new google.maps.Map(
-//         document.getElementById('map'), { zoom: 4, center: UCSD }
-//     )
-//     var marker = new google.maps.Marker({ position: UCSD, map: map })
-// }
+
 
 export default Search;
