@@ -12,9 +12,12 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
 import SideNav from './components/SideNav'
+
+
 
 // Here is if we have an id_token in localStorage
 if (localStorage.getItem("id_token")) {
@@ -33,7 +36,8 @@ ReactDOM.render(
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/search" component={Search} />
+            <Route exact path="/search" component={Search} /> 
+                <Footer />         
         </div>
     </Router>
     , document.getElementById('root')
