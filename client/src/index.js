@@ -14,17 +14,20 @@ import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
+import SideNav from './components/SideNav'
 
 // Here is if we have an id_token in localStorage
-if(localStorage.getItem("id_token")) {
-  // then we will attach it to the headers of each request from react application via axios
-  axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('id_token')}`;
+if (localStorage.getItem("id_token")) {
+    // then we will attach it to the headers of each request from react application via axios
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('id_token')}`;
 }
 
 ReactDOM.render(
     <Router>
         <div>
+
             <Navbar />
+            <SideNav />
             <Route exact path="/" component={App} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
