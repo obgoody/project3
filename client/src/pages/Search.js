@@ -8,17 +8,6 @@ class Search extends Component {
         return (
             <wrapper>
 
-                <div className="dropdown">
-                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-  </a>
-
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a className="dropdown-item" href="#">Action</a>
-                        <a className="dropdown-item" href="#">Another action</a>
-                        <a className="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
 
 
                 <div className="searchTool" action="/action_page.php" style={{ margin: "autoMaxWidth:300px" }}>
@@ -31,13 +20,7 @@ class Search extends Component {
                 <div className="text-center">
                     <img src="https://www.ownerdirect.com/Images/StaticMaps/2370-san-diego.png" className="img-fluid" alt="Responsive image" />
                 </div>
-
-
-                <div className="footer">
-                    <p>Footer</p>
-                </div>
-
-
+                
             </wrapper >
 
 
