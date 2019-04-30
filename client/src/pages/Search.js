@@ -3,8 +3,6 @@ import API from "../utils/API";
 import "../App.css";
 // import GoogleMapReact from 'google-map-react'
 
-
-
 class Search extends Component {
     state = {
         zip: "",
