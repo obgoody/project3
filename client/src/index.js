@@ -38,7 +38,7 @@ ReactDOM.render(
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/search" component={Search} /> 
-            <Rout exact path="/sale" componenet={Sale} />
+            <Route exact path="/sale" component={Sale} />
                 <Footer />         
         </div>
     </Router>
