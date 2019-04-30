@@ -90,6 +90,22 @@ app.post('/api/addsale', (req, res) => {
     .catch(err => res.status(400).json(err));
 });
 
+// Route to get all Users and populate them with their posted garage sales
+app.get("/populateduser", function(req, res) {
+  // Find all users
+  db.User.find({})
+    // Specify that we want to populate the retrieved users with any associated notes
+    .populate("notes")
+    .then(function(dbUser) {
+      // If able to successfully find and associate all Users and Notes, send them back to the client
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
+    });
+});
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
