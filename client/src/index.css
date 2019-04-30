@@ -19,3 +19,9 @@ body {
   color: white;
   text-align: center;
 }
+
+.saleCard{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
