@@ -3,25 +3,38 @@
 
 welcome to the GSF app!
 
-this full stack application uses:
--node
--mongodb
--bootstrap
--nodemon
--react-google-maps
--morgan
--bcrypt-nodejs
+this application utilizes:
+-node  
+
+-mongodb  
+
+-bootstrap  
+
+-nodemon  
+
+-react-google-maps  
+
+-morgan  
+
+-bcrypt-nodejs  
+
+-as well as a variety of googleAPI elements and packages.  
 
 
-# Please contact our repo's team about feature implementation and / or bug reporting, this is a currently in development app which will be changed frequently in both functionality and UX until official deployment!
+
+# Please contact our repo's team about feature implementation and / or bug reporting  
+# This is a currently in development app which will be changed frequently in both functionality and UX until official deployment!
 
 
 our team includes :
 
-*Tony https://github.com/obgoody
-*Cezar https://github.com/cganzon
-*Omid https://github.com/osoleimani75
-*Lucas https://github.com/lduttonucsd
+*Tony https://github.com/obgoody  
+
+*Cezar https://github.com/cganzon  
+
+*Omid https://github.com/osoleimani75  
+
+*Lucas https://github.com/lduttonucsd  
 
 
 
@@ -54,7 +67,10 @@ our team includes :
 
 
 
-
+  
+    
+      
+      
 ## About This Boilerplate
 
 This setup allows for a Node/Express/React/JWT app which can be easily deployed to Heroku.
