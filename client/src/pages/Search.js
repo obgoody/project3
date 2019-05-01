@@ -30,6 +30,7 @@ class Search extends Component {
 
     render() {
         return (
+            <div className="page-container">
             <div>
                 <form className="searchTool" style={{ margin: "autoMaxWidth:300px" }}>
                     <input
@@ -58,6 +59,7 @@ class Search extends Component {
                         )
                     })}
                 </ul>
+            </div >
             </div >
         )
     }

@@ -32,6 +32,7 @@ class Sale extends Component {
     render() {
         return (
             <div>
+                <div className="page-container">
                 <h1 className="salehead" style={{ textAlign: "center" }}>ADD A SALE!</h1>
                 <div className="saleCard" style={{ width: "80rem" }}>
                     <form>
@@ -71,6 +72,7 @@ class Sale extends Component {
                             onClick={this.handleFormSubmit}>SUBMIT</button>
                     </form>
                 </div>
+            </div>
             </div>
 
         )
