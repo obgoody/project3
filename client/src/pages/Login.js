@@ -37,6 +37,7 @@ class Login extends Component {
 
   render() {
     return (
+      <div className="page-container">
       <div className="container">
         <h1>Login</h1>
         <form onSubmit={this.handleFormSubmit}>
@@ -61,6 +62,7 @@ class Login extends Component {
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
         <p><Link to="/signup">Go to Signup</Link></p>
+      </div>
       </div>
 
     );
