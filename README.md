@@ -13,6 +13,9 @@ this full stack application uses:
 -bcrypt-nodejs
 
 
+# Please contact our repo's team about feature implementation and / or bug reporting, this is a currently in development app which will be changed frequently in both functionality and UX until official deployment!
+
+
 
 
 
