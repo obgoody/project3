@@ -13,13 +13,9 @@ const AddSaleSchema = new Schema({
     required: true,
     trim: true
   },
-  line1: {
+  address: {
     type: String,
     required: true,
-    trim: true,
-  },
-  line2: {
-    type: String,
     trim: true,
   },
   city: {
@@ -40,32 +36,21 @@ const AddSaleSchema = new Schema({
     maximum: 99999,
     trim: true
   },
-  addDate: [
-    {
-      date: {
-        type: Date,
-        required: true,
-      },
-      startTime: {
-        type: Date,
-        required: true,
-      },
-      endTime: {
-        type: Date,
-        required: true,
-      }
-    }
-  ],
-  images: [
-    {
-      url: {
-        type: String
-      },
-      alt: {
-        type: String
-      }
-    }
-  ],
+  startTime: {
+    type: String,
+  },
+  endTime: {
+    type: String,
+  },
+  image1: {
+    type: String
+  },
+  image2: {
+    type: String
+  },
+  image3: {
+    type: String
+  },
   createdAt: {
     type: Date,
     default: Date.now

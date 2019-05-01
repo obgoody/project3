@@ -5,11 +5,15 @@ class Sale extends Component {
     state = {
         title: "",
         description: "",
-        line1: "",
-        line2: "",
+        address: "",
+        startTime: "",
+        endTime: "",
         city: "",
         state: "",
-        zip: ""
+        zip: "",
+        image1: "",
+        image2: "",
+        image3: ""
     }
 
     handleInputChange = event => {
@@ -45,12 +49,16 @@ class Sale extends Component {
                                 <input type="text" className="form-control" name="description" placeholder="Enter a description" value={this.state.description} onChange={this.handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label for="line1">Line 1</label>
-                                <input type="text" className="form-control" name="line1" placeholder="1234 Main Street" value={this.state.line1} onChange={this.handleInputChange} required />
+                                <label for="startTime">Start</label>
+                                <input type="text" className="form-control" name="startTime" placeholder="When will it start?" value={this.state.startTime} onChange={this.handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label for="line2">Line 2 (Optional)</label>
-                                <input type="text" className="form-control" name="line2" placeholder="Apartment #, Floor #, etc." value={this.state.line2} onChange={this.handleInputChange} />
+                                <label for="endTime">End</label>
+                                <input type="text" className="form-control" name="endTime" placeholder="When will it end?" value={this.state.endTime} onChange={this.handleInputChange} required />
+                            </div>
+                            <div className="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" className="form-control" name="address" placeholder="1234 Main Street" value={this.state.address} onChange={this.handleInputChange} required />
                             </div>
                             <div className="form-row">
                                 <div className="form-group col-md-6">
@@ -65,6 +73,18 @@ class Sale extends Component {
                                     <label for="zip">Zip</label>
                                     <input type="text" className="form-control" name="zip" placeholder="12345" value={this.state.zip} onChange={this.handleInputChange} required />
                                 </div>
+                            </div>
+                            <div className="form-group">
+                                <label for="image1">Image 1</label>
+                                <input type="text" className="form-control" name="image1" placeholder="image.jpg" value={this.state.image1} onChange={this.handleInputChange} required />
+                            </div>
+                            <div className="form-group">
+                                <label for="image2">Image 2</label>
+                                <input type="text" className="form-control" name="image2" placeholder="anotherImage.jpg" value={this.state.image2} onChange={this.handleInputChange} required />
+                            </div>
+                            <div className="form-group">
+                                <label for="image3">Image 3</label>
+                                <input type="text" className="form-control" name="image3" placeholder="yetAnotherImage.jpg" value={this.state.image3} onChange={this.handleInputChange} required />
                             </div>
                             <button
                                 type="submit"
