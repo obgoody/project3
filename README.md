@@ -16,6 +16,14 @@ this full stack application uses:
 # Please contact our repo's team about feature implementation and / or bug reporting, this is a currently in development app which will be changed frequently in both functionality and UX until official deployment!
 
 
+our team includes :
+
+*Tony https://github.com/obgoody
+*Cezar https://github.com/cganzon
+*Omid https://github.com/osoleimani75
+*Lucas https://github.com/lduttonucsd
+
+
 
 
 
