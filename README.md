@@ -1,5 +1,49 @@
 # Create React Express App
 
+
+welcome to the GSF app!
+
+this full stack application uses:
+-node
+-mongodb
+-bootstrap
+-nodemon
+-react-google-maps
+-morgan
+-bcrypt-nodejs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## About This Boilerplate
 
 This setup allows for a Node/Express/React/JWT app which can be easily deployed to Heroku.
