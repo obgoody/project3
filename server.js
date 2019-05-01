@@ -64,41 +64,32 @@ app.get("/api/sales/:zip", (req, res) => {
   db.AddSale
     .find({zip: req.params.zip})
     .then(data => res.json(data));
-})
+});
+
+// Getting all garage sales route
+app.get("/api/sales", (req, res) => {
+  console.log(`request${req.body.zip}`);
+  db.AddSale
+    .find({})
+    .then(data => res.json(data));
+});
 
 // Add garage sale route
 app.post('/api/addsale', (req, res) => {
-  db.AddSale.create({
-    title: req.body.title,
-    description: req.body.description,
-    line1: req.body.line1,
-    line2: req.body.line2,
-    city: req.body.city,
-    state: req.body.state,
-    zip: req.body.zip,
-    addDate: {
-      date: req.body.date,
-      startTime: req.body.startTime,
-      endTime: req.body.endTime
-    },
-    images: {
-      url: req.body.url,
-      alt: req.body.alt
-    }
-  })
+  db.AddSale.create(req.body)
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
 });
 
-// Route to get all Users and populate them with their posted garage sales
-app.get("/populateduser", function(req, res) {
+// Route to get all garage sales and populate them with their associated user
+app.get("/populated", function(req, res) {
   // Find all users
-  db.User.find({})
+  db.AddSale.find({})
     // Specify that we want to populate the retrieved users with any associated notes
-    .populate("notes")
-    .then(function(dbUser) {
+    .populate("user")
+    .then(function(dbGarageSales) {
       // If able to successfully find and associate all Users and Notes, send them back to the client
-      res.json(dbUser);
+      res.json(dbGarageSales);
     })
     .catch(function(err) {
       // If an error occurs, send it back to the client

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AuthService from '../AuthService';
 
 class Navbar extends Component {
@@ -13,7 +13,10 @@ class Navbar extends Component {
             return (
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/search">Search for garage sales</Link>
+                        <Link className="nav-link" to="/search">Search</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/add">Add</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/profile">Profile</Link>
