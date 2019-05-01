@@ -27,6 +27,7 @@ class Sale extends Component {
             .then(response => {
                 alert("Garage sale added!");
             })
+            
     }
 
     render() {
