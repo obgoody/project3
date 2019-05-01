@@ -3,17 +3,27 @@
 
 welcome to the GSF app!
 
-this full stack application uses:
--node
--mongodb
--bootstrap
--nodemon
--react-google-maps
--morgan
--bcrypt-nodejs
+this application utilizes:
+-node  
+
+-mongodb  
+
+-bootstrap  
+
+-nodemon  
+
+-react-google-maps  
+
+-morgan  
+
+-bcrypt-nodejs  
+
+-as well as a variety of googleAPI elements and packages.  
 
 
-# Please contact our repo's team about feature implementation and / or bug reporting, this is a currently in development app which will be changed frequently in both functionality and UX until official deployment!
+
+# Please contact our repo's team about feature implementation and / or bug reporting  
+# This is a currently in development app which will be changed frequently in both functionality and UX until official deployment!
 
 
 our team includes :
