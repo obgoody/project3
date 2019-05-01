@@ -31,35 +31,36 @@ class Search extends Component {
     render() {
         return (
             <div className="page-container">
-            <div>
-                <form className="searchTool" style={{ margin: "autoMaxWidth:300px" }}>
-                    <input
-                        type="text"
-                        placeholder="Search Zip Code" name="zip"
-                        onChange={this.handleInputChange}
-                        value={this.state.search} />
-                    <button
-                        type="submit"
-                        className="btn fa fa-search btn-success"
-                        onClick={this.handleFormSubmit}>SEARCH</button>
-                </form>
-                <hr />
-                <div className="text-center">
-                    <iframe className="mapEmbed" title="mapEmbed" style={{ width: 800, height: 500 }} src="https://www.google.com/maps/embed/v1/place?q=UCSD&key=AIzaSyDoSB5s5IZ3NR2592EGVJy2j4EZ5H7ZjP4"></iframe>
-                </div>
+                <div>
+                    <h3 className="searchH3" ><i class="fas fa-home"></i>search for local garage sales</h3>
+                    <form className="searchTool" style={{ margin: "autoMaxWidth:300px" }}>
+                        <input
+                            type="text"
+                            placeholder="Search Zip Code" name="zip"
+                            onChange={this.handleInputChange}
+                            value={this.state.search} />
+                        <button
+                            type="submit"
+                            className="btn fa fa-search btn-success"
+                            onClick={this.handleFormSubmit}>SEARCH</button>
+                    </form>
+                    <hr />
+                    <div className="text-center">
+                        <iframe className="mapEmbed" title="mapEmbed" style={{ width: 800, height: 500 }} src="https://www.google.com/maps/embed/v1/place?q=UCSD&key=AIzaSyDoSB5s5IZ3NR2592EGVJy2j4EZ5H7ZjP4"></iframe>
+                    </div>
 
-                <ul className="list-group">
-                    {this.state.sales.map(sale => {
-                        return (
-                            <li key={sale._id} className="list-group-item">
-                                <h5><strong>{sale.title}</strong></h5>
-                                <p>Description: {sale.description}</p>
-                                <p>{sale.line1} {sale.line2}, {sale.city}, {sale.state} {sale.zip}</p>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div >
+                    <ul className="list-group">
+                        {this.state.sales.map(sale => {
+                            return (
+                                <li key={sale._id} className="list-group-item">
+                                    <h5><strong>{sale.title}</strong></h5>
+                                    <p>Description: {sale.description}</p>
+                                    <p>{sale.line1} {sale.line2}, {sale.city}, {sale.state} {sale.zip}</p>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div >
             </div >
         )
     }
