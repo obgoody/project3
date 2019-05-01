@@ -16,6 +16,9 @@ class Navbar extends Component {
                         <Link className="nav-link" to="/search">Search</Link>
                     </li>
                     <li className="nav-item">
+                        <Link className="nav-link" to="/sale">Sale</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link className="nav-link" to="/profile">Profile</Link>
                     </li>
                     <li className="nav-item">
