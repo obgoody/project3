@@ -80,7 +80,10 @@ class Search extends Component {
                                         </a>
                                     </div>
                                     <p>Description: {sale.description}</p>
+                                    <p>Start: {sale.startTime}</p>
+                                    <p>End: {sale.endTime}</p>
                                     <p>{sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
+                                    <p>Posted on {sale.createdAt}</p>
                                 </li>
                             )
                         })}
