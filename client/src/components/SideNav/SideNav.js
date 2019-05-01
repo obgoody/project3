@@ -38,11 +38,10 @@ class SideNav extends Component {
         return (
             <div>
                 <div id="mySidenav" className="sidenav" style={this.state.sideNavStyles}>
-                    <button className="closebtn" onClick={this.closeNav}>X</button>
+                    <button className="closebtn" onClick={this.closeNav}>x</button>
                     <ul>
-                        <li>a</li>
-                        <li>b</li>
-                        <li>c</li>
+                        <li><button href="/profile" >Profile</button></li>
+                        <li><button href="/login" onClick={() => this.Auth.logout()} >Sign Out</button></li>
                     </ul>
                 </div>
                 <div>
