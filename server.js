@@ -68,24 +68,7 @@ app.get("/api/sales/:zip", (req, res) => {
 
 // Add garage sale route
 app.post('/api/addsale', (req, res) => {
-  db.AddSale.create({
-    title: req.body.title,
-    description: req.body.description,
-    line1: req.body.line1,
-    line2: req.body.line2,
-    city: req.body.city,
-    state: req.body.state,
-    zip: req.body.zip,
-    addDate: {
-      date: req.body.date,
-      startTime: req.body.startTime,
-      endTime: req.body.endTime
-    },
-    images: {
-      url: req.body.url,
-      alt: req.body.alt
-    }
-  })
+  db.AddSale.create(req.body)
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
 });

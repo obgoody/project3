@@ -10,5 +10,8 @@ export default {
   },
   search: (zip) => {
     return axios.get(`/api/sales/${zip}`);
+  },
+  add: (data) => {
+    return axios.post("/api/addsale", data);
   }
 };
