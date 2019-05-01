@@ -18,10 +18,13 @@ this full stack application uses:
 
 our team includes :
 
-*Tony https://github.com/obgoody
-*Cezar https://github.com/cganzon
-*Omid https://github.com/osoleimani75
-*Lucas https://github.com/lduttonucsd
+*Tony https://github.com/obgoody  
+
+*Cezar https://github.com/cganzon  
+
+*Omid https://github.com/osoleimani75  
+
+*Lucas https://github.com/lduttonucsd  
 
 
 
