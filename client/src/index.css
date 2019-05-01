@@ -10,7 +10,7 @@ body {
   text-align: center;
 }
 .footer {
-  position: absolute;
+  position: bottom;
   left: 0;
   min-height: vh100;
   bottom: 0;
