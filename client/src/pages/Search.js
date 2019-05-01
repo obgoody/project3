@@ -21,11 +21,11 @@ class Search extends Component {
         event.preventDefault();
         console.log(this.state.zip);
         API.search(this.state.zip)
-        .then(response => {
-            this.setState({ sales: response.data });
-            this.setState({zip: ""});
-            console.log(this.state.sales);
-        })
+            .then(response => {
+                this.setState({ sales: response.data });
+                this.setState({ zip: "" });
+                console.log(this.state.sales);
+            })
     }
 
     render() {

@@ -1,4 +1,59 @@
-# Create React Express App
+# GSF APP *project3UCSDBC*
+
+
+welcome to the GSF app!
+
+this full stack application uses:
+-node
+-mongodb
+-bootstrap
+-nodemon
+-react-google-maps
+-morgan
+-bcrypt-nodejs
+
+
+# Please contact our repo's team about feature implementation and / or bug reporting, this is a currently in development app which will be changed frequently in both functionality and UX until official deployment!
+
+
+our team includes :
+
+*Tony https://github.com/obgoody
+*Cezar https://github.com/cganzon
+*Omid https://github.com/osoleimani75
+*Lucas https://github.com/lduttonucsd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## About This Boilerplate
 
