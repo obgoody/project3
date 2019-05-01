@@ -39,6 +39,7 @@ class Login extends Component {
     return (
       <div className="page-container">
         <div className="container">
+        <div class="jumbotron jumbotron-fluid">
           <h1 className="salehead" style={{ textAlign: "center" }}>Sign up</h1>
           <div className="saleCard" style={{ width: "70rem" }}>
             <form onSubmit={this.handleFormSubmit}>
@@ -67,6 +68,7 @@ class Login extends Component {
             <p><Link to="/signup">Go to Signup</Link></p>
           </div>
         </div>
+      </div>
       </div>
 
     );
