@@ -8,11 +8,11 @@ class Login extends Component {
     this.Auth = new AuthService();
   }
 
-  componentWillMount() {
-    if (this.Auth.loggedIn()) {
-      this.props.history.replace('/');
-    }
-  }
+  // componentWillMount() {
+  //   if (this.Auth.loggedIn()) {
+  //     this.props.history.replace('/');
+  //   }
+  // }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -21,7 +21,7 @@ class Login extends Component {
       .then(res => {
         // once user is logged in
         // take them to their profile page
-        this.props.history.replace(`/profile`);
+        this.props.history.replace(`/`);
       })
       .catch(err => {
         alert(err.response.data.message)
