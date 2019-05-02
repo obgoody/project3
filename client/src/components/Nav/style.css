@@ -1,6 +1,11 @@
 .logo {
-  height: 50px;
-  margin-left: 20px;
+  height: 60px;
+  margin-left: 50px;
+  padding: 0px !important;
+}
+
+.navbar {
+  padding: 0px !important;
 }
 
 .nav-icon {
