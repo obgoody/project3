@@ -3,11 +3,6 @@ import GoogleMapReact from 'google-map-react';
 import './assets/css/home.css'
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-const styles = {
-  width: '100%',
-  height: '536px'
-}
-
 class Home extends Component {
 
   static defaultProps = {
@@ -36,10 +31,10 @@ class Home extends Component {
               defaultCenter={this.props.center}
               defaultZoom={this.props.zoom}>
               
-              <Marker lat={this.props.center.lat} lng={-117.15} />
+              {/* <Marker lat={this.props.center.lat} lng={-117.15} />
               <Marker lat={this.props.center.lat} lng={-117.16} />
               <Marker lat={this.props.center.lat} lng={-117.17} />
-              <Marker lat={this.props.center.lat} lng={-117.18} />
+              <Marker lat={this.props.center.lat} lng={-117.18} /> */}
 
 
 

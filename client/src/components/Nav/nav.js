@@ -60,7 +60,19 @@ class Navbar extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse " id="navbarSupportedContent">
-                    {this.showNavigation()}
+                    <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                        <a className="nav-link" href="./login">Login Member</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="./search">Search Garage Sales</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="./add">Add Garage</a>
+                    </li>
+  
+                    </ul>
+
                 </div>
             </nav>
 

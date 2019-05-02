@@ -18,6 +18,12 @@ const AddSaleSchema = new Schema({
     required: true,
     trim: true,
   },
+  addressLat: {
+    type: String
+  },
+  addressLong: {
+    type: String
+  },
   city: {
     type: String,
     required: true,

@@ -21,7 +21,7 @@ class Login extends Component {
       .then(res => {
         // once user is logged in
         // take them to their profile page
-        this.props.history.replace(`/`);
+        this.props.history.replace(`/search`);
       })
       .catch(err => {
         alert(err.response.data.message)
@@ -65,7 +65,7 @@ class Login extends Component {
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
               </form>
-              <a src="/signup">Go to Signup</a>
+              <p src="/signup">Go to Signup</p>
             </div>
           </div>
         </div>
