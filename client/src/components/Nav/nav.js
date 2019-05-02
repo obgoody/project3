@@ -14,7 +14,7 @@ class Navbar extends Component {
                 </a>
                 <ul className="nav justify-content-center">
                     <li className="nav-item ">
-                        <a className="nav-link nav-icon" href="/"> <i className="far fa-map"></i> Map</a>
+                        <a className="nav-link nav-icon" href="/search"> <i className="far fa-map"></i> Map</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link nav-icon" href="./Sale"> <i className="fas fa-th-list"></i> List</a>

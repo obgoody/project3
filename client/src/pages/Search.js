@@ -7,7 +7,7 @@ import "../Styles/css/App.css";
 
 class Search extends Component {
     state = {
-        zip: "",
+        city: "",
         sales: []
     };
 
@@ -30,11 +30,11 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.zip);
-        API.search(this.state.zip)
+        console.log(this.state.city);
+        API.search(this.state.city)
             .then(response => {
                 this.setState({ sales: response.data });
-                this.setState({ zip: "" });
+                this.setState({ city: "" });
                 // console.log(this.state.sales);
             })
     }
@@ -52,9 +52,9 @@ class Search extends Component {
                     <form className="searchTool" style={{ margin: "autoMaxWidth:300px" }}>
                         <input
                             type="text"
-                            placeholder="Search Zip Code" name="zip"
+                            placeholder="Search a city" name="city"
                             onChange={this.handleInputChange}
-                            value={this.state.search} />
+                            value={this.state.city} />
                         <button
                             type="submit"
                             className="btn fa fa-search btn-success"
