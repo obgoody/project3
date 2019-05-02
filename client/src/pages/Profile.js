@@ -9,7 +9,6 @@ class Profile extends Component {
     username: "",
     email: ""
   };
-
   componentDidMount() {
     API.getUser(this.props.user.id).then(res => {
       this.setState({
@@ -18,7 +17,6 @@ class Profile extends Component {
       })
     });
   }
-
   render() {
     return (
       <div className="container Profile">
@@ -30,5 +28,4 @@ class Profile extends Component {
     )
   }
 }
-
 export default withAuth(Profile);

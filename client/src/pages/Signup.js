@@ -36,11 +36,10 @@ class Signup extends Component {
   render() {
     return (
       <div className="page-container">
-          <div className="container">
+        <div className="container">
           <div class="jumbotron jumbotron-fluid">
-            <h1 className="salehead" style={{ textAlign: "center" }}>Sign up</h1>
+            <h1 className="salehead" style={{ textAlign: "center" }}>Go to Login</h1>
             <div className="saleCard" style={{ width: "70rem" }}>
-
               <form onSubmit={this.handleFormSubmit}>
                 <div className="form-group">
                   <label htmlFor="username">Username:</label>
