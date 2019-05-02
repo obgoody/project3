@@ -13,6 +13,11 @@ import Home from './pages/home';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Nav';
+import Geocode from './components/Map/Gecoder';
+
+import Footer from './components/Footer';
+import Dashboard from './pages/Dashboard';
+import Search from './pages/Search';
 
 // Here is if we have an id_token in localStorage
 if(localStorage.getItem("id_token")) {
@@ -28,6 +33,10 @@ ReactDOM.render(
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/search" component={Search} /> 
+            
+                <Footer />         
         </div>
     </Router>
     , document.getElementById('root')

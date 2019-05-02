@@ -9,13 +9,15 @@ class Navbar extends Component {
         return (
 
                 <nav className="navbar  navbar-light bg-light">
-                <a className="navbar-brand" href="#"><img className="logo" src={logo} /></a>
-                <ul class="nav justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">Map</a>
+                <a className="navbar-brand" href="/">
+                    <img className="logo" src={logo} alt="logo"/>
+                </a>
+                <ul className="nav justify-content-center">
+                    <li className="nav-item ">
+                        <a className="nav-link nav-icon" href="/"> <i className="far fa-map"></i> Map</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">List</a>
+                    <li className="nav-item">
+                        <a className="nav-link nav-icon" href="/"> <i className="fas fa-th-list"></i> List</a>
                     </li>
 
                 </ul>
@@ -25,10 +27,10 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Login Member</a>
+                        <a className="nav-link" href="/">Login Member</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Add Garage</a>
+                        <a className="nav-link" href="/">Add Garage</a>
                     </li>
   
                     </ul>
