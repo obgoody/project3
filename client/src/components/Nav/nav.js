@@ -72,6 +72,7 @@ class Navbar extends Component {
                     </li>
   
                     </ul>
+                    {this.showNavigation()}
 
                 </div>
             </nav>
