@@ -30,6 +30,9 @@ class Navbar extends Component {
                         <a className="nav-link" href="./login">Login Member</a>
                     </li>
                     <li className="nav-item">
+                        <a className="nav-link" href="./search">Search Garage Sales</a>
+                    </li>
+                    <li className="nav-item">
                         <a className="nav-link" href="./add">Add Garage</a>
                     </li>
   

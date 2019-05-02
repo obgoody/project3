@@ -11,6 +11,9 @@ export default {
   search: (zip) => {
     return axios.get(`/api/sales/${zip}`);
   },
+  getAllSales: () => {
+    return axios.get("/api/sales");
+  },
   add: (data) => {
     return axios.post("/api/addsale", data);
   }
