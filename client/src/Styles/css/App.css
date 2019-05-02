@@ -25,6 +25,13 @@
 .carousel {
   width: 30%;
   padding: 10px;
+  
+.searchH3 {
+ text-align: center;
+}
+
+.card {
+width: 18rem;
 }
 
 @keyframes App-logo-spin {
