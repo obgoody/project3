@@ -30,6 +30,7 @@ class Sale extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state);
+        // Converting address to latitude and longitude coordinates
         Geocode.setApiKey("AIzaSyBLimj2eXL-OopKVfmWs6yLMSEXZ12M7Z0");
         let address = (`${this.state.address}, ${this.state.city}, ${this.state.state} ${this.state.zip}`);
         console.log(address);

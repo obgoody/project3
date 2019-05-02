@@ -73,14 +73,6 @@ class Search extends Component {
                                 console.log(sale);
                                 return <Marker lat={sale.addressLat} lng={sale.addressLong} />
                             })}
-                            
-                            {/* <Marker lat={this.state.sales.addressLat} lng={this.state.sales.addressLong} /> */}
-                            {/* <Marker lat={this.props.center.lat} lng={-117.16} />
-                            <Marker lat={this.props.center.lat} lng={-117.17} />
-                            <Marker lat={this.props.center.lat} lng={-117.18} /> */}
-
-
-
 
                             {/* <AnyReactComponent
                      lat={32.852906}
@@ -92,7 +84,7 @@ class Search extends Component {
 
                     </div>
 
-                    <ul className="list-group">
+                    {/* <ul className="list-group">
                         {this.state.sales.map(sale => {
                             return (
                                 <li key={sale._id} className="list-group-item">
@@ -131,7 +123,7 @@ class Search extends Component {
                                 </li>
                             )
                         })}
-                    </ul>
+                    </ul> */}
                 </div >
             </div >
         )
