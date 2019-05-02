@@ -30,6 +30,17 @@ class Home extends Component {
               bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
               defaultCenter={this.props.center}
               defaultZoom={this.props.zoom}>
+<<<<<<< HEAD
+=======
+              
+              {/* <Marker lat={this.props.center.lat} lng={-117.15} />
+              <Marker lat={this.props.center.lat} lng={-117.16} />
+              <Marker lat={this.props.center.lat} lng={-117.17} />
+              <Marker lat={this.props.center.lat} lng={-117.18} /> */}
+
+
+
+>>>>>>> 9a70679184b86c9f8093d55649e506f326400104
 
               {/* <AnyReactComponent
                  lat={32.852906}
