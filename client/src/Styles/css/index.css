@@ -10,11 +10,22 @@ body {
   text-align: center;
 }
 .footer {
-  position: fixed;
-  left: 0;
+  
+  position: bottom;
   bottom: 0;
   width: 100%;
+  min-height: vh100;
   background-color: grey;
   color: white;
   text-align: center;
+} 
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.saleCard{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }

@@ -7,7 +7,7 @@ class Dashboard extends Component {
     render() {
         return (
 
-            <wrapper>
+            <div className="page-container">
             <div >
                 <ul>
                     <button>add sale</button>
@@ -42,7 +42,7 @@ class Dashboard extends Component {
                 </div>
             </div>
 
-            </wrapper>
+            </div>
         )
 
     }

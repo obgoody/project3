@@ -17,6 +17,10 @@ class App extends Component {
     this.props.history.replace('/profile');
   };
 
+  goToSearch = () => {
+    this.props.history.replace("/search");
+  };
+
   render() {
     console.log(process.env.REACT_APP_SECRET_CODE);
     return (

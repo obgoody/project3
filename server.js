@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/appDB', {useNewUrlParser: true, useCreateIndex: true})
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/appDB', { useNewUrlParser: true, useCreateIndex: true })
   .then(() => console.log("MongoDB Connected!"))
   .catch(err => console.error(err));
 
@@ -50,32 +50,51 @@ app.post('/api/signup', (req, res) => {
 // to access
 app.get('/api/user/:id', isAuthenticated, (req, res) => {
   db.User.findById(req.params.id).then(data => {
-    if(data) {
+    if (data) {
       res.json(data);
     } else {
-      res.status(404).send({success: false, message: 'No user found'});
+      res.status(404).send({ success: false, message: 'No user found' });
     }
   }).catch(err => res.status(400).send(err));
 });
 
-// Add Garage Sale Route
+// Getting garage sales route depending on zip code
+app.get("/api/sales/:zip", (req, res) => {
+  console.log(`request${req.body.zip}`);
+  db.AddSale
+    .find({zip: req.params.zip})
+    .then(data => res.json(data));
+});
+
+// Getting all garage sales route
+app.get("/api/sales", (req, res) => {
+  console.log(`request${req.body.zip}`);
+  db.AddSale
+    .find({})
+    .then(data => res.json(data));
+});
+
+// Add garage sale route
 app.post('/api/addsale', (req, res) => {
-  db.AddSale.create({
-    title: req.body.title,
-    description: req.body.description,
-    address: {
-      line1: req.body.line1,
-      line2: req.body.line2,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip
-    },
-    start: req.body.start,
-    end: req.body.end,
-    image: req.body.image
-  })
+  db.AddSale.create(req.body)
     .then(data => res.json(data))
     .catch(err => res.status(400).json(err));
+});
+
+// Route to get all garage sales and populate them with their associated user
+app.get("/populated", function(req, res) {
+  // Find all users
+  db.AddSale.find({})
+    // Specify that we want to populate the retrieved users with any associated notes
+    .populate("user")
+    .then(function(dbGarageSales) {
+      // If able to successfully find and associate all Users and Notes, send them back to the client
+      res.json(dbGarageSales);
+    })
+    .catch(function(err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
+    });
 });
 
 // Serve up static assets (usually on heroku)
@@ -99,10 +118,10 @@ app.use(function (err, req, res, next) {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
