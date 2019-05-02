@@ -19,6 +19,9 @@ class Navbar extends Component {
                         <a className="nav-link" href="/" onClick={() => this.Auth.logout()}>Logout</a>
                     </li>
                     <li className="nav-item">
+                        <a className="nav-link" href="/search">Search</a>
+                    </li>
+                    <li className="nav-item">
                         <a className="nav-link" href="/add">Add Sale</a>
                     </li>
                 </ul>
@@ -28,6 +31,9 @@ class Navbar extends Component {
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
                         <a className="nav-link" href="/login">Login </a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/search">Search</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/login">Add Sale</a>
