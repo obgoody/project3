@@ -13,7 +13,6 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Nav';
 import Geocode from './components/Map/Gecoder';
-
 import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';

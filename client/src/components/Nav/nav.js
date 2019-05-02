@@ -17,7 +17,7 @@ class Navbar extends Component {
                         <a className="nav-link nav-icon" href="/"> <i className="far fa-map"></i> Map</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link nav-icon" href="/"> <i className="fas fa-th-list"></i> List</a>
+                        <a className="nav-link nav-icon" href="./Sale"> <i className="fas fa-th-list"></i> List</a>
                     </li>
 
                 </ul>
@@ -27,10 +27,10 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Login Member</a>
+                        <a className="nav-link" href="./login">Login Member</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Add Garage</a>
+                        <a className="nav-link" href="./add">Add Garage</a>
                     </li>
   
                     </ul>
