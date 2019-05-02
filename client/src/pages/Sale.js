@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Geocode from "react-geocode";
 import API from "../utils/API";
 
 class Sale extends Component {
@@ -11,6 +12,8 @@ class Sale extends Component {
         city: "",
         state: "",
         zip: "",
+        addressLat: "",
+        addressLong: "",
         image1: "",
         image2: "",
         image3: ""
@@ -27,10 +30,31 @@ class Sale extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state);
-        API.add(this.state)
-            .then(response => {
-                alert("Garage sale added!");
-            })
+        Geocode.setApiKey("AIzaSyBLimj2eXL-OopKVfmWs6yLMSEXZ12M7Z0");
+        let address = (`${this.state.address}, ${this.state.city}, ${this.state.state} ${this.state.zip}`);
+        console.log(address);
+        Geocode.fromAddress(address).then(
+            response => {
+            //   const { lat, lng } = response.results[0].geometry.location;
+              let lat = response.results[0].geometry.location.lat;
+              let lng = response.results[0].geometry.location.lng;
+            //   console.log(lat,lng);
+            //   console.log(`${address},  Lat: ${lat}, Long: ${lng}`);
+                this.setState({
+                    addressLat: lat.toString(),
+                    addressLong: lng.toString()
+                });
+                API.add(this.state)
+                .then(response => {
+                    alert("Garage sale added!");
+                })
+                // console.log(this.state);
+            },
+            error => {
+              console.error(error);
+            }
+          );
+        // console.log(this.state);
     }
 
     render() {

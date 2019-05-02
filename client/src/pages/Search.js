@@ -35,7 +35,7 @@ class Search extends Component {
             .then(response => {
                 this.setState({ sales: response.data });
                 this.setState({ zip: "" });
-                console.log(this.state.sales);
+                // console.log(this.state.sales);
             })
     }
 
@@ -68,24 +68,14 @@ class Search extends Component {
                             bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
                             defaultCenter={this.props.center}
                             defaultZoom={this.props.zoom}>
-                            {this.state.sales.map(sale => {
-                                Geocode.setApiKey("AIzaSyBLimj2eXL-OopKVfmWs6yLMSEXZ12M7Z0");
-                                let address = (`${sale.address}, ${sale.city}, ${sale.state} ${sale.zip}`);
-                                console.log(address);
-                                Geocode.fromAddress(address).then(
-                                    response => {
-                                      const { lat, lng } = response.results[0].geometry.location;
-                                      console.log(`${address},  Lat: ${lat}, Long: ${lng}`);
-                                    //   <Marker lat={lat} lng={lng} />
-                                    },
-                                    error => {
-                                      console.error(error);
-                                    }
-                                  );
-                            })}
 
-                            {/* <Marker lat={this.props.center.lat} lng={-117.15} />
-                            <Marker lat={this.props.center.lat} lng={-117.16} />
+                            {this.state.sales.map(sale => {
+                                console.log(sale);
+                                return <Marker lat={sale.addressLat} lng={sale.addressLong} />
+                            })}
+                            
+                            {/* <Marker lat={this.state.sales.addressLat} lng={this.state.sales.addressLong} /> */}
+                            {/* <Marker lat={this.props.center.lat} lng={-117.16} />
                             <Marker lat={this.props.center.lat} lng={-117.17} />
                             <Marker lat={this.props.center.lat} lng={-117.18} /> */}
 
