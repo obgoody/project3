@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
-import "../App.css";
+import "../Styles/css/App.css";
 // import GoogleMapReact from 'google-map-react'
 
 class Search extends Component {
