@@ -20,17 +20,11 @@ class Profile extends Component {
   render() {
     return (
       <div className="container Profile">
-        <div className="page-container">
-          <div class="jumbotron jumbotron-fluid">
-            <h1 className="salehead" style={{ textAlign: "center" }}>On the profile page!</h1>
-            <div className="saleCard" style={{ width: "70rem" }}>
-              <ul>Username: {this.state.username}</ul>
-              <ul>Email: {this.state.email}</ul>
-              <ul><Link to="/">Go home</Link></ul>
-            </div>
-          </div>
-        </div>
-      </div>     
+        <h1>On the profile page!</h1>
+        <p>Username: {this.state.username}</p>
+        <p>Email: {this.state.email}</p>
+        <Link to="/">Go home</Link>
+      </div>
     )
   }
 }

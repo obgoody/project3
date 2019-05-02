@@ -34,9 +34,9 @@ ReactDOM.render(
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/search" component={Search} /> 
+            <Route exact path="/search" component={Search} />
             <Route exact path="/add" component={Sale} />
-            <Footer />         
+            <Footer />
         </div>
     </Router>
     , document.getElementById('root')
