@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
+import MapComponent from "../components/Map/MapComponent";
+import GoogleMapReact from 'google-map-react';
+import Geocode from "react-geocode";
 import API from "../utils/API";
 import "../Styles/css/App.css";
-// import GoogleMapReact from 'google-map-react'
 
 class Search extends Component {
     state = {
         zip: "",
         sales: []
-    }
+    };
+
+    static defaultProps = {
+
+        center: {
+            lat: 32.852906,
+            lng: -117.1828535
+        },
+        zoom: 12
+    };
 
     handleInputChange = event => {
         // console.log(event.target);
@@ -29,6 +40,12 @@ class Search extends Component {
     }
 
     render() {
+        const Marker = sale => {
+            return <div className="AwesomePin">
+                <i class="fab fa-font-awesome-flag"></i>
+
+            </div>
+        }
         return (
             <div className="page-container">
                 <div>
@@ -44,8 +61,45 @@ class Search extends Component {
                             onClick={this.handleFormSubmit}>SEARCH</button>
                     </form>
                     <hr />
-                    <div className="text-center">
-                        <iframe className="mapEmbed" title="mapEmbed" style={{ width: 800, height: 500 }} src="https://www.google.com/maps/embed/v1/place?q=UCSD&key=AIzaSyDoSB5s5IZ3NR2592EGVJy2j4EZ5H7ZjP4"></iframe>
+
+                    {/* <MapComponent /> */}
+                    <div style={{ height: '80vh', width: '100%' }}>
+                        <GoogleMapReact
+                            bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
+                            defaultCenter={this.props.center}
+                            defaultZoom={this.props.zoom}>
+                            {this.state.sales.map(sale => {
+                                Geocode.setApiKey("AIzaSyBLimj2eXL-OopKVfmWs6yLMSEXZ12M7Z0");
+                                let address = (`${sale.address}, ${sale.city}, ${sale.state} ${sale.zip}`);
+                                console.log(address);
+                                Geocode.fromAddress(address).then(
+                                    response => {
+                                      const { lat, lng } = response.results[0].geometry.location;
+                                      console.log(`${address},  Lat: ${lat}, Long: ${lng}`);
+                                    //   <Marker lat={lat} lng={lng} />
+                                    },
+                                    error => {
+                                      console.error(error);
+                                    }
+                                  );
+                            })}
+
+                            {/* <Marker lat={this.props.center.lat} lng={-117.15} />
+                            <Marker lat={this.props.center.lat} lng={-117.16} />
+                            <Marker lat={this.props.center.lat} lng={-117.17} />
+                            <Marker lat={this.props.center.lat} lng={-117.18} /> */}
+
+
+
+
+                            {/* <AnyReactComponent
+                     lat={32.852906}
+                     lng={-117.15}
+                    // map={'map'}
+                  /> */}
+
+                        </GoogleMapReact>
+
                     </div>
 
                     <ul className="list-group">
