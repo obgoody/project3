@@ -88,7 +88,7 @@ class Search extends Component {
 
                         {/* <List /> */}
                         <div className="col-lg-4">
-                            <ul className="list-group" style={{ "overflow-y": "scroll", "height": "54%" }}>
+                            <ul className="list-group" style={{ "overflow-y": "scroll", "height": "41%" }}>
                                 {this.state.sales.map(sale => {
                                     return (
                                         <li key={sale._id} className="list-group-item mb-3">
