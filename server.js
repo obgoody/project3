@@ -59,10 +59,10 @@ app.get('/api/user/:id', isAuthenticated, (req, res) => {
 });
 
 // Getting garage sales route depending on zip code
-app.get("/api/sales/:zip", (req, res) => {
-  console.log(`request${req.body.zip}`);
+app.get("/api/sales/:city", (req, res) => {
+  console.log(`request${req.body.city}`);
   db.AddSale
-    .find({zip: req.params.zip})
+    .find({city: req.params.city})
     .then(data => res.json(data));
 });
 

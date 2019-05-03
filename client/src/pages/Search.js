@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
+import MapComponent from "../components/Map/MapComponent";
+import GoogleMapReact from 'google-map-react';
+import Geocode from "react-geocode";
 import API from "../utils/API";
-import "../App.css";
-// import GoogleMapReact from 'google-map-react'
+import "../Styles/css/App.css";
 
 class Search extends Component {
     state = {
-        zip: "",
+        city: "",
         sales: []
-    }
+    };
+
+    static defaultProps = {
+
+        center: {
+            lat: 32.852906,
+            lng: -117.1828535
+        },
+        zoom: 12
+    };
 
     handleInputChange = event => {
         // console.log(event.target);
@@ -19,36 +30,61 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.zip);
-        API.search(this.state.zip)
+        console.log(this.state.city);;
+        API.search(this.state.city)
             .then(response => {
                 this.setState({ sales: response.data });
-                this.setState({ zip: "" });
-                console.log(this.state.sales);
+                this.setState({ city: "" });
+                // console.log(this.state.sales);
             })
     }
 
     render() {
+        const Marker = sale => {
+            return <div className="AwesomePin">
+                <i class="fab fa-font-awesome-flag"></i>
+
+            </div>
+        }
         return (
             <div className="page-container">
                 <div>
                     <form className="searchTool" style={{ margin: "autoMaxWidth:300px" }}>
                         <input
                             type="text"
-                            placeholder="Search Zip Code" name="zip"
+                            placeholder="Search a city" name="city"
                             onChange={this.handleInputChange}
-                            value={this.state.search} />
+                            value={this.state.city} />
                         <button
                             type="submit"
                             className="btn fa fa-search btn-success"
                             onClick={this.handleFormSubmit}>SEARCH</button>
                     </form>
                     <hr />
-                    <div className="text-center">
-                        <iframe className="mapEmbed" title="mapEmbed" style={{ width: 800, height: 500 }} src="https://www.google.com/maps/embed/v1/place?q=UCSD&key=AIzaSyDoSB5s5IZ3NR2592EGVJy2j4EZ5H7ZjP4"></iframe>
+
+                    {/* <MapComponent /> */}
+                    <div style={{ height: '80vh', width: '100%' }}>
+                        <GoogleMapReact
+                            bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
+                            defaultCenter={this.props.center}
+                            defaultZoom={this.props.zoom}>
+
+                            {this.state.sales.map(sale => {
+                                console.log(sale);
+                                return <Marker lat={sale.addressLat} lng={sale.addressLong} />
+                            })}
+
+                            {/* <AnyReactComponent
+                     lat={32.852906}
+                     lng={-117.15}
+                    // map={'map'}
+                  /> */}
+
+                        </GoogleMapReact>
+
                     </div>
 
-                    <ul className="list-group">
+                    {/* <ul className="list-group">
                         {this.state.sales.map(sale => {
                             return (
                                 <li key={sale._id} className="list-group-item">
@@ -87,7 +123,7 @@ class Search extends Component {
                                 </li>
                             )
                         })}
-                    </ul>
+                    </ul> */}
                 </div >
             </div >
         )

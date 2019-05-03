@@ -21,4 +21,5 @@ const MyMapComponent = compose(
 
 <MyMapComponent isMarkerShown />
 
+export default MyMapComponent;
 

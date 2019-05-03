@@ -27,6 +27,14 @@
   padding: 10px;
 }
 
+.searchH3 {
+ text-align: center;
+}
+
+.card {
+width: 18rem;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
