@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MapComponent from "../components/Map/MapComponent";
-// import List from "../components/List/List";
 import GoogleMapReact from 'google-map-react';
-import Geocode from "react-geocode";
+import Moment from "react-moment";
+import 'moment-timezone';
+
 import API from "../utils/API";
 import "../Styles/css/App.css";
 
@@ -123,7 +123,7 @@ class Search extends Component {
                                             <p>Start: {sale.startTime}</p>
                                             <p>End: {sale.endTime}</p>
                                             <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
-                                            <p>Posted on {sale.createdAt}</p>
+                                            <p>Posted on <Moment format="MM/DD/YYYY, h:mm a">{sale.createdAt}</Moment></p>
                                         </li>
                                     )
                                 })}
