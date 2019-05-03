@@ -16,13 +16,16 @@ class Navbar extends Component {
             return (
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <a className="nav-link" href="/" onClick={() => this.Auth.logout()}>Logout</a>
-                    </li>
-                    <li className="nav-item">
                         <a className="nav-link" href="/search">Search</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/add">Add Sale</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/dashboard">Account</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/" onClick={() => this.Auth.logout()}>Logout</a>
                     </li>
                 </ul>
             );
@@ -38,9 +41,6 @@ class Navbar extends Component {
                     <li className="nav-item">
                         <a className="nav-link" href="/login">Add Sale</a>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/dashboard">Account</a>
-                    </li>
                 </ul>
             );
 
@@ -50,15 +50,15 @@ class Navbar extends Component {
         return (
 
             <nav className="navbar  navbar-light bg-light">
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/search">
                     <img className="logo" src={logo} alt="logo" />
                 </a>
                 <ul className="nav justify-content-center">
                     <li classNmae="nav-item ">
-                        <a className="nav-link nav-icon" href="/"> <i className="far fa-map"></i> Map</a>
+                        <a className="nav-link nav-icon" href="/search"> <i className="far fa-map"></i> Map</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link nav-icon" href="/"> <i className="fas fa-th-list"></i> List</a>
+                        <a className="nav-link nav-icon" href="/search"> <i className="fas fa-th-list"></i> List</a>
                     </li>
 
                 </ul>
