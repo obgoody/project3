@@ -54,12 +54,12 @@ class Navbar extends Component {
                     <img className="logo" src={logo} alt="logo" />
                 </a>
                 <ul className="nav justify-content-center">
-                    <li classNmae="nav-item ">
+                    {/* <li classNmae="nav-item ">
                         <a className="nav-link nav-icon" href="/search"> <i className="far fa-map"></i> Map</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link nav-icon" href="/search"> <i className="fas fa-th-list"></i> List</a>
-                    </li>
+                    </li> */}
 
                 </ul>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

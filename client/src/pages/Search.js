@@ -21,6 +21,15 @@ class Search extends Component {
         zoom: 12
     };
 
+    componentDidMount() {
+        API.search("San Diego")
+        .then(response => {
+            this.setState({ sales: response.data });
+            this.setState({ city: "" });
+            // console.log(this.state.sales);
+        })
+    }
+
     handleInputChange = event => {
         // console.log(event.target);
         const { name, value } = event.target;
@@ -48,42 +57,43 @@ class Search extends Component {
             </div>
         }
         return (
-            <div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 offset-3">
-                            <div class="input-group mt-3 mb-3">
-                                <input type="text" class="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
-                                </div>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-lg-6 offset-3">
+                        <div class="input-group mt-3 mb-3">
+                            <input type="text" class="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
                             </div>
                         </div>
                     </div>
-                    <div>
+                </div>
+                <div>
+                    <div className="row">
                         {/* <MapComponent /> */}
+                        <div className="col-lg-8">
+                            <div style={{ height: '80vh', width: '100%' }}>
+                                <GoogleMapReact
+                                    bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
+                                    defaultCenter={this.props.center}
+                                    defaultZoom={this.props.zoom}>
 
-                        <div style={{ height: '80vh', width: '100%' }}>
-                            <GoogleMapReact
-                                bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
-                                defaultCenter={this.props.center}
-                                defaultZoom={this.props.zoom}>
-
-                                {this.state.sales.map(sale => {
-                                    console.log(sale);
-                                    return <Marker lat={sale.addressLat} lng={sale.addressLong} />
-                                })}
-                            </GoogleMapReact>
+                                    {this.state.sales.map(sale => {
+                                        console.log(sale);
+                                        return <Marker lat={sale.addressLat} lng={sale.addressLong} />
+                                    })}
+                                </GoogleMapReact>
+                            </div>
                         </div>
 
                         {/* <List /> */}
-
-                        <ul className="list-group">
-                            {this.state.sales.map(sale => {
-                                return (
-                                    <li key={sale._id} className="list-group-item mt-3 mb-3">
-                                        <h5><strong>{sale.title}</strong></h5>
-                                        {/* <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div className="col-lg-4">
+                            <ul className="list-group" style={{ "overflow-y": "scroll", "height": "54%" }}>
+                                {this.state.sales.map(sale => {
+                                    return (
+                                        <li key={sale._id} className="list-group-item mb-3">
+                                            <h5><strong>{sale.title}</strong></h5>
+                                            {/* <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                         <ol class="carousel-indicators">
                                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -109,16 +119,18 @@ class Search extends Component {
                                             <span class="sr-only">Next</span>
                                         </a>
                                     </div> */}
-                                        <p>Description: {sale.description}</p>
-                                        <p>Start: {sale.startTime}</p>
-                                        <p>End: {sale.endTime}</p>
-                                        <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
-                                        <p>Posted on {sale.createdAt}</p>
-                                    </li>
-                                )
-                            })}
-                        </ul>
+                                            <p>Description: {sale.description}</p>
+                                            <p>Start: {sale.startTime}</p>
+                                            <p>End: {sale.endTime}</p>
+                                            <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
+                                            <p>Posted on {sale.createdAt}</p>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </div>
         )
