@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MapComponent from "../components/Map/MapComponent";
+// import List from "../components/List/List";
 import GoogleMapReact from 'google-map-react';
 import Geocode from "react-geocode";
 import API from "../utils/API";
@@ -30,7 +31,7 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.city);
+        console.log(this.state.city.toLowerCase());
         API.search(this.state.city)
             .then(response => {
                 this.setState({ sales: response.data });
@@ -47,49 +48,42 @@ class Search extends Component {
             </div>
         }
         return (
-            <div className="page-container">
-                <div>
-                    <form className="searchTool" style={{ margin: "autoMaxWidth:300px" }}>
-                        <input
-                            type="text"
-                            placeholder="Search a city" name="city"
-                            onChange={this.handleInputChange}
-                            value={this.state.city} />
-                        <button
-                            type="submit"
-                            className="btn fa fa-search btn-success"
-                            onClick={this.handleFormSubmit}>SEARCH</button>
-                    </form>
-                    <hr />
-
-                    {/* <MapComponent /> */}
-                    <div style={{ height: '80vh', width: '100%' }}>
-                        <GoogleMapReact
-                            bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
-                            defaultCenter={this.props.center}
-                            defaultZoom={this.props.zoom}>
-
-                            {this.state.sales.map(sale => {
-                                console.log(sale);
-                                return <Marker lat={sale.addressLat} lng={sale.addressLong} />
-                            })}
-
-                            {/* <AnyReactComponent
-                     lat={32.852906}
-                     lng={-117.15}
-                    // map={'map'}
-                  /> */}
-
-                        </GoogleMapReact>
-
+            <div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6 offset-3">
+                            <div class="input-group mt-3 mb-3">
+                                <input type="text" class="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div>
+                        {/* <MapComponent /> */}
 
-                    {/* <ul className="list-group">
-                        {this.state.sales.map(sale => {
-                            return (
-                                <li key={sale._id} className="list-group-item">
-                                    <h5><strong>{sale.title}</strong></h5>
-                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div style={{ height: '80vh', width: '100%' }}>
+                            <GoogleMapReact
+                                bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
+                                defaultCenter={this.props.center}
+                                defaultZoom={this.props.zoom}>
+
+                                {this.state.sales.map(sale => {
+                                    console.log(sale);
+                                    return <Marker lat={sale.addressLat} lng={sale.addressLong} />
+                                })}
+                            </GoogleMapReact>
+                        </div>
+
+                        {/* <List /> */}
+
+                        <ul className="list-group">
+                            {this.state.sales.map(sale => {
+                                return (
+                                    <li key={sale._id} className="list-group-item mt-3 mb-3">
+                                        <h5><strong>{sale.title}</strong></h5>
+                                        {/* <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                         <ol class="carousel-indicators">
                                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -114,18 +108,19 @@ class Search extends Component {
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Next</span>
                                         </a>
-                                    </div>
-                                    <p>Description: {sale.description}</p>
-                                    <p>Start: {sale.startTime}</p>
-                                    <p>End: {sale.endTime}</p>
-                                    <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
-                                    <p>Posted on {sale.createdAt}</p>
-                                </li>
-                            )
-                        })}
-                    </ul> */}
-                </div >
-            </div >
+                                    </div> */}
+                                        <p>Description: {sale.description}</p>
+                                        <p>Start: {sale.startTime}</p>
+                                        <p>End: {sale.endTime}</p>
+                                        <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
+                                        <p>Posted on {sale.createdAt}</p>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

@@ -65,7 +65,7 @@ class Login extends Component {
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
               </form>
-              <p src="/signup">Go to Signup</p>
+              <p><Link to="/signup">Go to Signup</Link></p>
             </div>
           </div>
         </div>
