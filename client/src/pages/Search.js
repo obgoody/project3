@@ -30,7 +30,7 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.city);;
+        console.log(this.state.city.toLowerCase());
         API.search(this.state.city)
             .then(response => {
                 this.setState({ sales: response.data });
