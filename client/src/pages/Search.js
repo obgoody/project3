@@ -73,18 +73,10 @@ class Search extends Component {
                                 console.log(sale);
                                 return <Marker lat={sale.addressLat} lng={sale.addressLong} />
                             })}
-
-                            {/* <AnyReactComponent
-                     lat={32.852906}
-                     lng={-117.15}
-                    // map={'map'}
-                  /> */}
-
                         </GoogleMapReact>
-
                     </div>
 
-                    {/* <ul className="list-group">
+                    <ul className="list-group">
                         {this.state.sales.map(sale => {
                             return (
                                 <li key={sale._id} className="list-group-item">
@@ -123,7 +115,7 @@ class Search extends Component {
                                 </li>
                             )
                         })}
-                    </ul> */}
+                    </ul>
                 </div >
             </div >
         )

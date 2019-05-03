@@ -38,7 +38,7 @@ class Signup extends Component {
       <div className="page-container">
         <div className="container">
           <div class="jumbotron jumbotron-fluid">
-            <h1 className="salehead" style={{ textAlign: "center" }}>Go to Login</h1>
+            <h1 className="salehead" style={{ textAlign: "center" }}>Sign Up</h1>
             <div className="saleCard" style={{ width: "70rem" }}>
               <form onSubmit={this.handleFormSubmit}>
                 <div className="form-group">
