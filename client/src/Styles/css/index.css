@@ -10,12 +10,11 @@ body {
   text-align: center;
 }
 .footer {
-  
   position: bottom;
   bottom: 0;
   width: 100%;
   min-height: vh100;
-  background-color: grey;
+  background-color: rgb(177, 177, 177);
   color: white;
   text-align: center;
   margin-top: 25px;
