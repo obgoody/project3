@@ -9,7 +9,8 @@ import "../Styles/css/App.css";
 class Search extends Component {
     state = {
         city: "",
-        sales: []
+        sales: [],
+        cityError: ""
     };
 
     static defaultProps = {
@@ -21,13 +22,25 @@ class Search extends Component {
         zoom: 12
     };
 
-    componentDidMount() {
-        API.search("San Diego")
-        .then(response => {
-            this.setState({ sales: response.data });
-            this.setState({ city: "" });
-            // console.log(this.state.sales);
-        })
+    // componentDidMount() {
+    //     API.search("San Diego")
+    //         .then(response => {
+    //             this.setState({ sales: response.data });
+    //             this.setState({ city: "" });
+    //             // console.log(this.state.sales);
+    //         })
+    // }
+
+    validate = () => {
+        let cityError = "";
+        if (!this.state.city) {
+            cityError = "Please input a valid city!";
+        }
+        if(cityError) {
+            this.setState({cityError});
+            return false;
+        }
+        return true;
     }
 
     handleInputChange = event => {
@@ -40,13 +53,22 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.city.toLowerCase());
-        API.search(this.state.city)
-            .then(response => {
-                this.setState({ sales: response.data });
-                this.setState({ city: "" });
-                // console.log(this.state.sales);
-            })
+        this.setState({sales: []});
+                // Checking if search field is empty or not
+        const isValid = this.validate();
+        if (isValid) {
+            // Converting city input to proper upper case form ex: "san diego" to "San Diego"
+            let city = this.state.city.toLowerCase().split(' ')
+                .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                .join(' ');
+            console.log(city);
+            API.search(city)
+                .then(response => {
+                    this.setState({ sales: response.data });
+                    this.setState({ city: "", cityError: "" });
+                    // console.log(this.state.sales);
+                })
+        }
     }
 
     render() {
@@ -59,78 +81,50 @@ class Search extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-6 offset-3">
-                        <div class="input-group mt-3 mb-3">
-                            <input type="text" class="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div className="row">
-                        {/* <MapComponent /> */}
-                        <div className="col-lg-8">
-                            <div style={{ height: '80vh', width: '100%' }}>
-                                <GoogleMapReact
-                                    bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
-                                    defaultCenter={this.props.center}
-                                    defaultZoom={this.props.zoom}>
+                    {/* <MapComponent /> */}
+                    <div className="col-lg-8 mt-3 mb-3">
+                        <div style={{ height: '80vh', width: '100%' }}>
+                            <GoogleMapReact
+                                bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
+                                defaultCenter={this.props.center}
+                                defaultZoom={this.props.zoom}>
 
-                                    {this.state.sales.map(sale => {
-                                        console.log(sale);
-                                        return <Marker lat={sale.addressLat} lng={sale.addressLong} />
-                                    })}
-                                </GoogleMapReact>
-                            </div>
-                        </div>
-
-                        {/* <List /> */}
-                        <div className="col-lg-4">
-                            <ul className="list-group" style={{ "overflow-y": "scroll", "height": "41%" }}>
                                 {this.state.sales.map(sale => {
-                                    return (
-                                        <li key={sale._id} className="list-group-item mb-3">
-                                            <h5><strong>{sale.title}</strong></h5>
-                                            {/* <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                        </ol>
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src={sale.image1} class="d-block w-100" alt={sale._id} />
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src={sale.image2} class="d-block w-100" alt={sale._id} />
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src={sale.image3} class="d-block w-100" alt={sale._id} />
-                                            </div>
-                                        </div>
-                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div> */}
-                                            <p>Description: {sale.description}</p>
-                                            <p>Start: {sale.startTime}</p>
-                                            <p>End: {sale.endTime}</p>
-                                            <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
-                                            <p>Posted on <Moment format="MM/DD/YYYY, h:mm a">{sale.createdAt}</Moment></p>
-                                        </li>
-                                    )
+                                    // console.log(sale);
+                                    return <Marker lat={sale.addressLat} lng={sale.addressLong} />
                                 })}
-                            </ul>
+                            </GoogleMapReact>
                         </div>
                     </div>
 
+                    {/* <List /> */}
+                    <div className="col-lg-4">
+                        <div className="row">
+                            <form class="input-group mt-3 mb-3">
+                                <input type="text" class="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="row">
+                            {this.state.cityError ? <div style={{color: "red"}}>{this.state.cityError}</div> : null}
+                        </div>
+                        <ul className="list-group" style={{ "overflow-y": "scroll", "minHeight": "100px", "maxHeight": "690px" }}>
+                            {this.state.sales.map(sale => {
+                                return (
+                                    <li key={sale._id} className="list-group-item mb-3">
+                                        <h5><strong>{sale.title}</strong></h5>
+                                        <p>Description: {sale.description}</p>
+                                        <p>Start: {sale.startTime}</p>
+                                        <p>End: {sale.endTime}</p>
+                                        <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
+                                        <p>Posted on <Moment format="MM/DD/YYYY h:mma">{sale.createdAt}</Moment></p>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
                 </div>
             </div>
         )
