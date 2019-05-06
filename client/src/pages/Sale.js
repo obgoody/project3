@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Geocode from "react-geocode";
 import API from "../utils/API";
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from "react-router-dom";
 import AuthService from './../components/AuthService';
-import Login from './Login'
 
 
 class Sale extends Component {
@@ -71,7 +69,7 @@ class Sale extends Component {
         if (this.Auth.loggedIn()) {
             return (
                 <div className="container">
-                    <div class="jumbotron mt-3">
+                    <div className="jumbotron mt-3">
                         <h1 className="salehead" style={{ textAlign: "center" }}>ADD A SALE!</h1>
                         <form>
                             <div className="form-group">

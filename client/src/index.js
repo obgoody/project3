@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './Styles/css/index.css'
-import App from './App';
+// import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import axios from "axios";
 
 // Our Components
 import Login from './pages/Login';
-import Home from './pages/home';
+// import Home from './pages/home';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Navbar from './components/Nav';
-import Geocode from './components/Map/Gecoder';
+// import Geocode from './components/Map/Gecoder';
 import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
