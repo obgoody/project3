@@ -15,7 +15,7 @@ class Search extends Component {
             lat: 32.852906,
             lng: -117.1828535
         },
-        zoom: 11
+        zoom: 10
     };
 
     componentDidMount() {
