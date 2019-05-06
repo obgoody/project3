@@ -2,18 +2,14 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Moment from "react-moment";
 import 'moment-timezone';
-
 import API from "../utils/API";
 import "../Styles/css/App.css";
 
 class Search extends Component {
     state = {
         city: "",
-        sales: []
-    };
-
-    static defaultProps = {
-
+        sales: [],
+        cityError: "",
         center: {
             lat: 32.852906,
             lng: -117.1828535
@@ -23,11 +19,27 @@ class Search extends Component {
 
     componentDidMount() {
         API.search("San Diego")
-        .then(response => {
-            this.setState({ sales: response.data });
-            this.setState({ city: "" });
-            // console.log(this.state.sales);
-        })
+            .then(response => {
+                this.setState({ sales: response.data });
+                this.setState({ city: "" });
+                // console.log(this.state.sales);
+            })
+    }
+
+    cityCoordinates = () => {
+
+    }
+
+    validate = () => {
+        let cityError = "";
+        if (!this.state.city) {
+            cityError = "Please input a valid city!";
+        }
+        if (cityError) {
+            this.setState({ cityError });
+            return false;
+        }
+        return true;
     }
 
     handleInputChange = event => {
@@ -40,72 +52,78 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.city.toLowerCase());
-        API.search(this.state.city)
-            .then(response => {
-                this.setState({ sales: response.data });
-                this.setState({ city: "" });
-                // console.log(this.state.sales);
-            })
-    }
+        this.setState({ sales: [] });
+        // Checking if search field is empty or not
+        const isValid = this.validate();
+        if (isValid) {
+            // Converting city input to proper upper case form ex: "san diego" to "San Diego"
+            let city = this.state.city.toLowerCase().split(' ')
+                .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                .join(' ');
+            console.log(city);
+            API.search(city)
+                .then(response => {
+                    this.setState({ sales: response.data });
+                    this.setState({ city: "", cityError: "" });
+                    // console.log(this.state.sales);
+                });
+        };
+    };
 
     render() {
-        const Marker = sale => {
-            return <div className="AwesomePin">
-                <i class="fab fa-font-awesome-flag"></i>
+        const Marker = props => {
+            return (
+                <div>
+                    <p className="sale-popup" style={{ fontWeight: 900, width: "50px" }}>{props.title}</p>
 
-            </div>
-        }
+                        <i className="fab fa-font-awesome-flag"></i>
+                </div>
+            )
+        };
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-6 offset-3">
-                        <div class="input-group mt-3 mb-3">
-                            <input type="text" class="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div className="row">
-                        {/* <MapComponent /> */}
-                        <div className="col-lg-8">
-                            <div style={{ height: '80vh', width: '100%' }}>
-                                <GoogleMapReact
-                                    bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
-                                    defaultCenter={this.props.center}
-                                    defaultZoom={this.props.zoom}>
+                    <div className="col-lg-8 mt-3 mb-3">
+                        <div style={{ height: '80vh', width: '100%' }}>
+                            <GoogleMapReact
+                                bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
+                                defaultCenter={this.state.center}
+                                defaultZoom={this.state.zoom}>
 
-                                    {this.state.sales.map(sale => {
-                                        console.log(sale);
-                                        return <Marker lat={sale.addressLat} lng={sale.addressLong} />
-                                    })}
-                                </GoogleMapReact>
-                            </div>
-                        </div>
-
-                        {/* <List /> */}
-                        <div className="col-lg-4">
-                            <ul className="list-group" style={{ "overflow-y": "scroll", "minHeight": "100px",
-    "maxHeight": "490px" }}>
                                 {this.state.sales.map(sale => {
-                                    return (
-                                        <li key={sale._id} className="list-group-item mb-3">
-                                            <h5><strong>{sale.title}</strong></h5>
-                                            <p>Description: {sale.description}</p>
-                                            <p>Start: {sale.startTime}</p>
-                                            <p>End: {sale.endTime}</p>
-                                            <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
-                                            <p>Posted on <Moment format="MM/DD/YYYY, h:mm a">{sale.createdAt}</Moment></p>
-                                        </li>
-                                    )
+                                    // console.log(sale);
+                                    return <Marker title={sale.title} lat={sale.addressLat} lng={sale.addressLong} />
                                 })}
-                            </ul>
+                            </GoogleMapReact>
                         </div>
                     </div>
-
+                    <div className="col-lg-4">
+                        <div className="row">
+                            <form className="input-group mt-3 mb-3">
+                                <input type="text" className="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
+                                <div className="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="row">
+                            {this.state.cityError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.cityError}</div> : null}
+                        </div>
+                        <ul className="list-group" style={{ "overflowY": "scroll", "minHeight": "100px", "maxHeight": "690px" }}>
+                            {this.state.sales.map(sale => {
+                                return (
+                                    <li key={sale._id} className="list-group-item mb-3">
+                                        <h5><strong>{sale.title}</strong></h5>
+                                        <p>Description: {sale.description}</p>
+                                        <p>Start: {sale.startTime}</p>
+                                        <p>End: {sale.endTime}</p>
+                                        <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
+                                        <p>Posted on <Moment format="MM/DD/YYYY h:mma">{sale.createdAt}</Moment></p>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
                 </div>
             </div>
         )
