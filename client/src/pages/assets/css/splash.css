@@ -3,7 +3,7 @@
 }
 
 .jumbotron {
-   background: transparent;    
+  background: transparent;
    justify-content: center;
 }
 
@@ -11,7 +11,8 @@ body {
     background-size: cover;
     text-align: center;
     font-family: 'Domine', serif;
-    background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-misctexture01-tong-019-chim-02_1_0.jpg?auto=format&bg=F4F4F3&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-1.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=1200&s=da7ed7f89eb7f857efdc8ba7f01af33b)
+    background-image: url(https://image.freepik.com/free-psd/white-wood-texture-background-design_1022-75.jpg);
+    max-height: vh100;
 }
 
 .card {

@@ -63,7 +63,7 @@ class Search extends Component {
                         <div class="input-group mt-3 mb-3">
                             <input type="text" class="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                                <button class="btn btn-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
                             </div>
                         </div>
                     </div>

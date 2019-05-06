@@ -123,7 +123,7 @@ class Sale extends Component {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="btn btn-primary"
+                                    className="btn btn-secondary"
                                     onClick={this.handleFormSubmit}>SUBMIT</button>
                             </form>
                         </div>
