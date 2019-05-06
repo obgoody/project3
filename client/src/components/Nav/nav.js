@@ -53,7 +53,7 @@ class Navbar extends Component {
                 <a className="navbar-brand" href="/">
                     <img className="logo" src={logo} alt="logo" />
                 </a>
-                <a className="navName" ><i class="fas fa-search"></i>Market Street</a>
+                <a className="navName" ><i class="fas fa-search"></i>  Market Street</a>
                 <ul className="nav justify-content-center">
                     {/* <li classNmae="nav-item ">
                         <a className="nav-link nav-icon" href="/search"> <i className="far fa-map"></i> Map</a>
