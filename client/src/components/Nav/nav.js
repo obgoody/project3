@@ -50,7 +50,7 @@ class Navbar extends Component {
         return (
 
             <nav className="navbar  navbar-light bg-light">
-                <a className="navbar-brand" href="/search">
+                <a className="navbar-brand" href="/">
                     <img className="logo" src={logo} alt="logo" />
                 </a>
                 <ul className="nav justify-content-center">
