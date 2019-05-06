@@ -53,17 +53,7 @@ class Navbar extends Component {
                 <a className="navbar-brand" href="/">
                     <img className="logo" src={logo} alt="logo" />
                 </a>
-                <a className="navName" ><i class="fas fa-search"></i>  Market Street</a>
-                <ul className="nav justify-content-center">
-                    {/* <li classNmae="nav-item ">
-                        <a className="nav-link nav-icon" href="/search"> <i className="far fa-map"></i> Map</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link nav-icon" href="/search"> <i className="fas fa-th-list"></i> List</a>
-                    </li> */}
-
-                </ul>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse " id="navbarSupportedContent">
