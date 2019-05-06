@@ -15,12 +15,12 @@ class Home extends Component {
 
 
   render() {
-    const Marker = props => {
-      return <div className="AwesomePin">
-        <i class="fab fa-font-awesome-flag"></i>
+    // const Marker = props => {
+    //   return <div className="AwesomePin">
+    //     <i class="fab fa-font-awesome-flag"></i>
 
-      </div>
-    }
+    //   </div>
+    // }
     return (
 
       <div >
