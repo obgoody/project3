@@ -102,14 +102,14 @@ class Search extends Component {
                             <form className="input-group mt-3 mb-3">
                                 <input type="text" className="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
                                 <div className="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                                    <button class="btn btn-outline-secondary mr-2" type="submit" onClick={this.handleFormSubmit}>Search</button>
                                 </div>
                             </form>
                         </div>
                         <div className="row">
                             {this.state.cityError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.cityError}</div> : null}
                         </div>
-                        <ul className="list-group" style={{ "overflowY": "scroll", "minHeight": "100px", "maxHeight": "690px" }}>
+                        <ul className="list-group" style={{ "overflowY": "scroll", "minHeight": "400px", "maxHeight": "430px" }}>
                             {this.state.sales.map(sale => {
                                 return (
                                     <li key={sale._id} className="list-group-item mb-3">
