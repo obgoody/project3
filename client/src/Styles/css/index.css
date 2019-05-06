@@ -18,6 +18,7 @@ body {
   background-color: grey;
   color: white;
   text-align: center;
+  margin-top: 25px;
 } 
 .page-container {
   position: relative;
