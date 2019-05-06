@@ -17,6 +17,7 @@ import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
 import Sale from './pages/Sale';
+import Splash from './pages/Splash';
 
 // Here is if we have an id_token in localStorage
 if (localStorage.getItem("id_token")) {
@@ -28,7 +29,7 @@ ReactDOM.render(
     <Router>
         <div>
             <Navbar />
-            <Route exact path="/" component={Search} />
+            <Route exact path="/" component={Splash} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile" component={Profile} />
