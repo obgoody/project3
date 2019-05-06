@@ -82,11 +82,11 @@ app.post('/api/addsale', (req, res) => {
 });
 
 // Route to get all garage sales and populate them with their associated user
-app.get("/populated", function(req, res) {
+app.get("/populatedsales", function(req, res) {
   // Find all users
   db.AddSale.find({})
     // Specify that we want to populate the retrieved users with any associated notes
-    .populate("user")
+    .populate({path:'user',model:'User'})
     .then(function(dbGarageSales) {
       // If able to successfully find and associate all Users and Notes, send them back to the client
       res.json(dbGarageSales);
