@@ -15,7 +15,7 @@ class Search extends Component {
             lat: 32.852906,
             lng: -117.1828535
         },
-        zoom: 12
+        zoom: 11
     };
 
     componentDidMount() {
@@ -27,22 +27,22 @@ class Search extends Component {
             })
     }
 
-    cityCoordinates = () => {
+    cityCoordinates = (city) => {
         Geocode.setApiKey("AIzaSyBLimj2eXL-OopKVfmWs6yLMSEXZ12M7Z0");
         // console.log(address);
-        Geocode.fromAddress(this.state.city).then(response => {
+        Geocode.fromAddress(city).then(response => {
             //   const { lat, lng } = response.results[0].geometry.location;
             let lat = response.results[0].geometry.location.lat;
             let lng = response.results[0].geometry.location.lng;
             //   console.log(lat,lng);
             //   console.log(`${address},  Lat: ${lat}, Long: ${lng}`);
             this.setState({
-                city: {
+                center: {
                     lat: lat,
                     lng: lng
                 }
             });
-            API.add(this.state)
+            console.log(this.state);
         },
             error => {
                 console.error(error);
@@ -81,6 +81,7 @@ class Search extends Component {
                 .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
                 .join(' ');
             console.log(city);
+            this.cityCoordinates(city)
             API.search(city)
                 .then(response => {
                     this.setState({ sales: response.data });
@@ -94,9 +95,12 @@ class Search extends Component {
         const Marker = props => {
             return (
                 <div>
-                    <p className="sale-popup" style={{ fontWeight: 900, width: "50px" }}>{props.title}</p>
-
-                        <i className="fab fa-font-awesome-flag"></i>
+                    <i class="fas fa-warehouse popupbox"></i>
+                    {/* <i className="fab fa-font-awesome-flag popupbox" style={{width: "30px"}}></i> */}
+                    <div className="pbox">
+                        <p className="sale-popup" style={{ fontSize: "18px", fontWeight: 900, width: "200px"}}>{props.title}</p>
+                        <p className="sale-popup" style={{ fontSize: "14px", fontWeight: 900, width: "200px" }}>Address: {props.address}, {props.city}, {props.state} {props.zip}</p>
+                    </div>
                 </div>
             )
         };
@@ -107,12 +111,12 @@ class Search extends Component {
                         <div style={{ height: '80vh', width: '100%' }}>
                             <GoogleMapReact
                                 bootstrapURLKeys={{ key: "AIzaSyDk_a_MQ3sUXYg2Y6oI-cxtuKXuoUtbOEM" }}
-                                defaultCenter={this.state.center}
+                                center={this.state.center}
                                 defaultZoom={this.state.zoom}>
 
                                 {this.state.sales.map(sale => {
                                     // console.log(sale);
-                                    return <Marker title={sale.title} lat={sale.addressLat} lng={sale.addressLong} />
+                                    return <Marker title={sale.title} address={sale.address} city={sale.city} state={sale.state} zip={sale.zip} lat={sale.addressLat} lng={sale.addressLong} />
                                 })}
                             </GoogleMapReact>
                         </div>
