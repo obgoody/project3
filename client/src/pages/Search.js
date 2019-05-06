@@ -95,9 +95,8 @@ class Search extends Component {
         const Marker = props => {
             return (
                 <div>
-                    <i class="fas fa-warehouse popupbox"></i>
-                    {/* <i className="fab fa-font-awesome-flag popupbox" style={{width: "30px"}}></i> */}
-                    <div className="pbox">
+                    <i class="fas fa-warehouse fa-lg popupbox"></i>
+                    <div className="pbox" style={{zIndex: "99999"}}>
                         <p className="sale-popup" style={{ fontSize: "18px", fontWeight: 900, width: "200px"}}>{props.title}</p>
                         <p className="sale-popup" style={{ fontSize: "14px", fontWeight: 900, width: "200px" }}>Address: {props.address}, {props.city}, {props.state} {props.zip}</p>
                     </div>
