@@ -71,7 +71,7 @@ class Signup extends Component {
                     style={{ width: "500px" }}
                     onChange={this.handleChange} />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-secondary">Submit</button>
               </form>
               <p><Link to="/login">Go to Login</Link></p>
             </div>
