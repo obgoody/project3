@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Moment from "react-moment";
 import 'moment-timezone';
+import Geocode from "react-geocode";
 import API from "../utils/API";
 import "../Styles/css/App.css";
 
@@ -27,7 +28,26 @@ class Search extends Component {
     }
 
     cityCoordinates = () => {
-
+        Geocode.setApiKey("AIzaSyBLimj2eXL-OopKVfmWs6yLMSEXZ12M7Z0");
+        // console.log(address);
+        Geocode.fromAddress(this.state.city).then(response => {
+            //   const { lat, lng } = response.results[0].geometry.location;
+            let lat = response.results[0].geometry.location.lat;
+            let lng = response.results[0].geometry.location.lng;
+            //   console.log(lat,lng);
+            //   console.log(`${address},  Lat: ${lat}, Long: ${lng}`);
+            this.setState({
+                city: {
+                    lat: lat,
+                    lng: lng
+                }
+            });
+            API.add(this.state)
+        },
+            error => {
+                console.error(error);
+            }
+        )
     }
 
     validate = () => {
@@ -102,7 +122,7 @@ class Search extends Component {
                             <form className="input-group mt-3 mb-3">
                                 <input type="text" className="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
                                 <div className="input-group-append">
-                                    <button class="btn btn-outline-secondary mr-2" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                                    <button class="btn btn-secondary mr-2" type="submit" onClick={this.handleFormSubmit}>Search</button>
                                 </div>
                             </form>
                         </div>
