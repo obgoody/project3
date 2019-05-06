@@ -22,14 +22,14 @@ class Search extends Component {
         zoom: 12
     };
 
-    // componentDidMount() {
-    //     API.search("San Diego")
-    //         .then(response => {
-    //             this.setState({ sales: response.data });
-    //             this.setState({ city: "" });
-    //             // console.log(this.state.sales);
-    //         })
-    // }
+    componentDidMount() {
+        API.search("San Diego")
+            .then(response => {
+                this.setState({ sales: response.data });
+                this.setState({ city: "" });
+                // console.log(this.state.sales);
+            })
+    }
 
     validate = () => {
         let cityError = "";
@@ -108,7 +108,7 @@ class Search extends Component {
                             </form>
                         </div>
                         <div className="row">
-                            {this.state.cityError ? <div style={{color: "red"}}>{this.state.cityError}</div> : null}
+                            {this.state.cityError ? <div style={{color: "red", fontSize: "20px"}}>{this.state.cityError}</div> : null}
                         </div>
                         <ul className="list-group" style={{ "overflow-y": "scroll", "minHeight": "100px", "maxHeight": "690px" }}>
                             {this.state.sales.map(sale => {
