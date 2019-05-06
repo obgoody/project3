@@ -72,6 +72,11 @@
   border: none;
 }
 
+.navName {
+  font-family: 'Patua One', cursive;
+  font-size: 200%;
+}
+
 .openbtn:hover {
   background-color: #444;
 }

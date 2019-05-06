@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from './images/sale-sign.svg'
+import logo from './images/logo2.png'
 import './style.css';
 // import { Link } from 'react-router-dom';
 import AuthService from '../AuthService';
@@ -53,6 +53,7 @@ class Navbar extends Component {
                 <a className="navbar-brand" href="/">
                     <img className="logo" src={logo} alt="logo" />
                 </a>
+                <a className="navName" ><i class="fas fa-search"></i>Market Street</a>
                 <ul className="nav justify-content-center">
                     {/* <li classNmae="nav-item ">
                         <a className="nav-link nav-icon" href="/search"> <i className="far fa-map"></i> Map</a>

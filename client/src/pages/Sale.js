@@ -88,10 +88,10 @@ class Sale extends Component {
             return (
                 <div className="container">
                     <div className="jumbotron mt-3">
-                        <h1 className="salehead" style={{ textAlign: "center" }}>ADD A SALE!</h1>
+                        <h1 className="salehead" style={{ textAlign: "center" }}>Add your Sale!</h1>
                         <form>
                             <div className="form-group">
-                                <label for="title">Title</label>
+                                <label for="title">Name</label>
                                 <input type="text" className="form-control" name="title" placeholder="Enter a title" value={this.state.title} onChange={this.handleInputChange} required />
                                 {this.state.titleError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.titleError}</div> : null}
                             </div>
