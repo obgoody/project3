@@ -18,14 +18,14 @@ class Search extends Component {
         zoom: 12
     };
 
-    // componentDidMount() {
-    //     API.search("San Diego")
-    //         .then(response => {
-    //             this.setState({ sales: response.data });
-    //             this.setState({ city: "" });
-    //             // console.log(this.state.sales);
-    //         })
-    // }
+    componentDidMount() {
+        API.search("San Diego")
+            .then(response => {
+                this.setState({ sales: response.data });
+                this.setState({ city: "" });
+                // console.log(this.state.sales);
+            })
+    }
 
     cityCoordinates = () => {
 
@@ -36,8 +36,8 @@ class Search extends Component {
         if (!this.state.city) {
             cityError = "Please input a valid city!";
         }
-        if(cityError) {
-            this.setState({cityError});
+        if (cityError) {
+            this.setState({ cityError });
             return false;
         }
         return true;
@@ -53,7 +53,7 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        this.setState({sales: []});
+        this.setState({ sales: [] });
         // Checking if search field is empty or not
         const isValid = this.validate();
         if (isValid) {
@@ -72,11 +72,13 @@ class Search extends Component {
     };
 
     render() {
-        const Marker = () => {
+        const Marker = props => {
             return (
-            <div className="AwesomePin">
-                <i class="fab fa-font-awesome-flag"></i>
-            </div>
+                <div>
+                    <p className="sale-popup" style={{ fontWeight: 900, width: "50px" }}>{props.title}</p>
+
+                        <i className="fab fa-font-awesome-flag"></i>
+                </div>
             )
         };
         return (
@@ -91,7 +93,7 @@ class Search extends Component {
 
                                 {this.state.sales.map(sale => {
                                     // console.log(sale);
-                                    return <Marker lat={sale.addressLat} lng={sale.addressLong} />
+                                    return <Marker title={sale.title} lat={sale.addressLat} lng={sale.addressLong} />
                                 })}
                             </GoogleMapReact>
                         </div>
@@ -106,7 +108,7 @@ class Search extends Component {
                             </form>
                         </div>
                         <div className="row">
-                            {this.state.cityError ? <div style={{color: "red", fontSize: "20px"}}>{this.state.cityError}</div> : null}
+                            {this.state.cityError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.cityError}</div> : null}
                         </div>
                         <ul className="list-group" style={{ "overflowY": "scroll", "minHeight": "100px", "maxHeight": "690px" }}>
                             {this.state.sales.map(sale => {
