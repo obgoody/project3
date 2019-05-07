@@ -134,7 +134,7 @@ class Search extends Component {
                                 <div className="row">
                                     {this.state.cityError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.cityError}</div> : null}
                                 </div>
-                                <ul className="list-group" style={{ "overflowY": "scroll", "minHeight": "400px", "maxHeight": "660px"}}>
+                                <ul className="list-group" style={{ "overflowY": "scroll", "minHeight": "400px", "maxHeight": "460px"}}>
                                     {this.state.sales.map(sale => {
                                         return (
                                             <li key={sale._id} className="list-group-item mb-3">
