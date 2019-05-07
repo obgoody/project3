@@ -53,6 +53,7 @@ class Navbar extends Component {
                 <a className="navbar-brand" href="/">
                     <img className="logo" src={logo} alt="logo" />
                 </a>
+                <a><i class="fas fa-road"></i> Market Street</a>
                 <button className="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" style={{color: "white"}}></span>
                 </button>
