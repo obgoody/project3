@@ -21,9 +21,6 @@ class Sale extends Component {
         zip: "",
         addressLat: "",
         addressLong: "",
-        image1: "",
-        image2: "",
-        image3: "",
         titleError: "",
         descriptionError: "",
         addressError: "",
@@ -88,11 +85,11 @@ class Sale extends Component {
         if (this.Auth.loggedIn()) {
             return (
                 <div className="container">
-                    <div className="jumbotron mt-3">
-                        <h1 className="salehead" style={{ textAlign: "center" }}>Add your Sale!</h1>
+                    <div className="jumbotron">
+                        <h1 className="salehead" style={{ textAlign: "center" }}>Add a Garage Sale!</h1>
                         <form>
                             <div className="form-group">
-                                <label for="title">Name</label>
+                                <label for="title">Title</label>
                                 <input type="text" className="form-control" name="title" placeholder="Enter a title" value={this.state.title} onChange={this.handleInputChange} required />
                                 {this.state.titleError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.titleError}</div> : null}
                             </div>
@@ -125,18 +122,6 @@ class Sale extends Component {
                                     <label for="zip">Zip</label>
                                     <input type="text" className="form-control" name="zip" placeholder="12345" value={this.state.zip} onChange={this.handleInputChange} required />
                                 </div>
-                            </div>
-                            <div className="form-group">
-                                <label for="image1">Image 1</label>
-                                <input type="text" className="form-control" name="image1" placeholder="image.jpg" value={this.state.image1} onChange={this.handleInputChange} required />
-                            </div>
-                            <div className="form-group">
-                                <label for="image2">Image 2</label>
-                                <input type="text" className="form-control" name="image2" placeholder="anotherImage.jpg" value={this.state.image2} onChange={this.handleInputChange} required />
-                            </div>
-                            <div className="form-group">
-                                <label for="image3">Image 3</label>
-                                <input type="text" className="form-control" name="image3" placeholder="yetAnotherImage.jpg" value={this.state.image3} onChange={this.handleInputChange} required />
                             </div>
                             <button to="/search" type="submit" className="btn btn-secondary" onClick={this.handleFormSubmit} data-toggle="modal" data-target="#exampleModal">Add!</button>
                             {/* Modal to confirm the sale was added and gives a summary */}
