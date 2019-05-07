@@ -21,27 +21,21 @@ class Sale extends Component {
         zip: "",
         addressLat: "",
         addressLong: "",
-        titleError: "",
-        descriptionError: "",
-        addressError: "",
-        startTimeError: "",
-        endTimeError: "",
-        cityError: "",
-        stateError: "",
-        zipError: ""
+        formError: "",
 
     }
 
     validate = () => {
-        let titleError = "";
-        if (!this.state.title) {
-            titleError = "Please input a title";
+        let formError = "";
+        if (!this.state.title || !this.state.description || !this.state.address || !this.state.startTime || !this.state.endTime || !this.state.city || !this.state.state || !this.state.zip) {
+            formError = "Please fill out all fields";
         }
-        if (titleError) {
-            this.setState({ titleError });
+        if (formError) {
+            this.setState({ formError });
             return false;
         }
         return true;
+        
     }
 
     handleInputChange = event => {
@@ -69,7 +63,8 @@ class Sale extends Component {
                 //   console.log(`${address},  Lat: ${lat}, Long: ${lng}`);
                 this.setState({
                     addressLat: lat.toString(),
-                    addressLong: lng.toString()
+                    addressLong: lng.toString(),
+                    formError: ""
                 });
                 API.add(this.state)
             },
@@ -81,7 +76,7 @@ class Sale extends Component {
     }
 
 
-    showSale = () => {
+    render() {
         if (this.Auth.loggedIn()) {
             return (
                 <div className="container">
@@ -89,43 +84,43 @@ class Sale extends Component {
                         <h1 className="salehead" style={{ textAlign: "center" }}>Add a Garage Sale!</h1>
                         <form>
                             <div className="form-group">
-                                <label for="title">Title</label>
+                                <label htmlFor="title">Title</label>
                                 <input type="text" className="form-control" name="title" placeholder="Enter a title" value={this.state.title} onChange={this.handleInputChange} required />
-                                {this.state.titleError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.titleError}</div> : null}
                             </div>
                             <div className="form-group">
-                                <label for="description">Description</label>
+                                <label htmlFor="description">Description</label>
                                 <input type="text" className="form-control" name="description" placeholder="Enter a description" value={this.state.description} onChange={this.handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label for="startTime">Start</label>
+                                <label htmlFor="startTime">Start</label>
                                 <input type="text" className="form-control" name="startTime" placeholder="When will it start?" value={this.state.startTime} onChange={this.handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label for="endTime">End</label>
+                                <label htmlFor="endTime">End</label>
                                 <input type="text" className="form-control" name="endTime" placeholder="When will it end?" value={this.state.endTime} onChange={this.handleInputChange} required />
                             </div>
                             <div className="form-group">
-                                <label for="address">Address</label>
+                                <label htmlFor="address">Address</label>
                                 <input type="text" className="form-control" name="address" placeholder="1234 Main Street" value={this.state.address} onChange={this.handleInputChange} required />
                             </div>
                             <div className="form-row">
                                 <div className="form-group col-md-6">
-                                    <label for="city">City</label>
+                                    <label htmlFor="city">City</label>
                                     <input type="text" className="form-control" name="city" placeholder="Enter a city" value={this.state.city} onChange={this.handleInputChange} required />
                                 </div>
                                 <div className="form-group col-md-4">
-                                    <label for="state">State</label>
+                                    <label htmlFor="state">State</label>
                                     <input type="text" className="form-control" name="state" placeholder="Ex: CA" value={this.state.state} onChange={this.handleInputChange} required />
                                 </div>
                                 <div className="form-group col-md-2">
-                                    <label for="zip">Zip</label>
+                                    <label htmlFor="zip">Zip</label>
                                     <input type="text" className="form-control" name="zip" placeholder="12345" value={this.state.zip} onChange={this.handleInputChange} required />
                                 </div>
                             </div>
-                            <button to="/search" type="submit" className="btn btn-secondary" onClick={this.handleFormSubmit} data-toggle="modal" data-target="#exampleModal">Add!</button>
+                            {this.state.formError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.formError}</div> : this.handleFormSubmit}
+                            <button type="submit" className="btn btn-secondary" onClick={this.handleFormSubmit} data-toggle="modal" data-target="#exampleModal">Add!</button>
                             {/* Modal to confirm the sale was added and gives a summary */}
-                            <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div className="modal-dialog" role="document">
                                     <div className="modal-content">
                                         <div className="modal-header">
@@ -140,7 +135,7 @@ class Sale extends Component {
                                             <p>Address: {this.state.address}, {this.state.city}, {this.state.state} {this.state.zip}</p>
                                         </div>
                                         <div className="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
@@ -151,13 +146,6 @@ class Sale extends Component {
             )
         }
     };
-    render() {
-        return (
-            <div>
-                {this.showSale()}
-            </div>
-        )
-    }
 }
 
 
