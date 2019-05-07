@@ -95,7 +95,7 @@ class Search extends Component {
         const Marker = props => {
             return (
                 <div>
-                    <i class="fas fa-warehouse fa-lg popupbox"></i>
+                    <i className="fas fa-warehouse fa-lg popupbox"></i>
                     <div className="pbox" style={{ zIndex: "99999" }}>
                         <p className="sale-popup" style={{ fontSize: "18px", fontWeight: 900, width: "200px" }}>{props.title}</p>
                         <p className="sale-popup" style={{ fontSize: "14px", fontWeight: 900, width: "200px" }}>Address: {props.address}, {props.city}, {props.state} {props.zip}</p>
@@ -115,19 +115,19 @@ class Search extends Component {
 
                                 {this.state.sales.map(sale => {
                                     // console.log(sale);
-                                    return <Marker title={sale.title} address={sale.address} city={sale.city} state={sale.state} zip={sale.zip} lat={sale.addressLat} lng={sale.addressLong} />
+                                    return <Marker key={sale._id} title={sale.title} address={sale.address} city={sale.city} state={sale.state} zip={sale.zip} lat={sale.addressLat} lng={sale.addressLong} />
                                 })}
                             </GoogleMapReact>
                         </div>
                     </div>
                     <div className="col-lg-4">
-                        <div class="card mt-3" style={{ width: "100%", height: "96%" }}>
-                            <div class="card-body">
+                        <div className="card mt-3" style={{ width: "100%", height: "96%" }}>
+                            <div className="card-body">
                                 <div className="row">
                                     <form className="input-group mb-3 ml-2">
                                         <input type="text" className="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
                                         <div className="input-group-append">
-                                            <button class="btn btn-secondary mr-2" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                                            <button className="btn btn-secondary mr-2" type="submit" onClick={this.handleFormSubmit}>Search</button>
                                         </div>
                                     </form>
                                 </div>
