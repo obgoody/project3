@@ -38,35 +38,33 @@ class Login extends Component {
   render() {
     return (
       <div className="page-container">
-        <div className="container">
-          <div class="jumbotron jumbotron-fluid">
-            <h1 className="salehead" style={{ textAlign: "center" }}>Login</h1>
-            <div className="saleCard" style={{ width: "70rem" }}>
-              <form onSubmit={this.handleFormSubmit}>
-                <div className="form-group">
-                  <label htmlFor="email">Email address:</label>
-                  <input className="form-control"
-                    placeholder="Email goes here..."
-                    name="email"
-                    type="email"
-                    id="email"
-                    style={{ width: "500px" }}
-                    onChange={this.handleChange} />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="pwd">Password:</label>
-                  <input className="form-control"
-                    placeholder="Password goes here..."
-                    name="password"
-                    type="password"
-                    id="pwd"
-                    style={{ width: "500px" }}
-                    onChange={this.handleChange} />
-                </div>
-                <button type="submit" className="btn btn-secondary">Submit</button>
-              </form>
-              <p><Link to="/signup">Go to Signup</Link></p>
-            </div>
+        <div className="jumbotron">
+          <div className="saleCard" style={{ width: "70rem" }}>
+            <form onSubmit={this.handleFormSubmit}>
+              <h1 className="salehead" style={{ textAlign: "center" }}>Log In</h1>
+              <p className="float-right"><Link to="/signup">Go to Sign Up</Link></p>
+              <div className="form-group">
+                <label htmlFor="email">Email address:</label>
+                <input className="form-control"
+                  placeholder="Email goes here..."
+                  name="email"
+                  type="email"
+                  id="email"
+                  style={{ width: "500px" }}
+                  onChange={this.handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="pwd">Password:</label>
+                <input className="form-control"
+                  placeholder="Password goes here..."
+                  name="password"
+                  type="password"
+                  id="pwd"
+                  style={{ width: "500px" }}
+                  onChange={this.handleChange} />
+              </div>
+              <button type="submit" className="btn btn-secondary">Submit</button>
+            </form>
           </div>
         </div>
       </div>

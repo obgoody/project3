@@ -48,15 +48,6 @@ const AddSaleSchema = new Schema({
   endTime: {
     type: String,
   },
-  image1: {
-    type: String
-  },
-  image2: {
-    type: String
-  },
-  image3: {
-    type: String
-  },
   createdAt: {
     type: Date,
     default: Date.now
