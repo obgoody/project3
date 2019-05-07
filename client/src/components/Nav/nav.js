@@ -14,7 +14,7 @@ class Navbar extends Component {
     showNavigation = () => {
         if (this.Auth.loggedIn()) {
             return (
-                <ul className="navbar-nav mr-auto">
+                <ul className="navbar-nav mr-auto ml-5">
                     <li className="nav-item">
                         <a className="nav-link" href="/search">Search</a>
                     </li>
@@ -31,7 +31,7 @@ class Navbar extends Component {
             );
         } else {
             return (
-                <ul className="navbar-nav mr-auto">
+                <ul className="navbar-nav mr-auto ml-5">
                     <li className="nav-item">
                         <a className="nav-link" href="/login">Login </a>
                     </li>
@@ -49,12 +49,12 @@ class Navbar extends Component {
     render() {
         return (
 
-            <nav className="navbar  navbar-light bg-light">
+            <nav className="navbar navbar-light bg-light">
                 <a className="navbar-brand" href="/">
                     <img className="logo" src={logo} alt="logo" />
                 </a>
                 <button className="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon" style={{color: "white"}}></span>
                 </button>
                 <div className="collapse navbar-collapse " id="navbarSupportedContent">
                     {this.showNavigation()}

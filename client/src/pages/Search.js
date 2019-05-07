@@ -96,8 +96,8 @@ class Search extends Component {
             return (
                 <div>
                     <i class="fas fa-warehouse fa-lg popupbox"></i>
-                    <div className="pbox" style={{zIndex: "99999"}}>
-                        <p className="sale-popup" style={{ fontSize: "18px", fontWeight: 900, width: "200px"}}>{props.title}</p>
+                    <div className="pbox" style={{ zIndex: "99999" }}>
+                        <p className="sale-popup" style={{ fontSize: "18px", fontWeight: 900, width: "200px" }}>{props.title}</p>
                         <p className="sale-popup" style={{ fontSize: "14px", fontWeight: 900, width: "200px" }}>Address: {props.address}, {props.city}, {props.state} {props.zip}</p>
                     </div>
                 </div>
@@ -121,31 +121,35 @@ class Search extends Component {
                         </div>
                     </div>
                     <div className="col-lg-4">
-                        <div className="row">
-                            <form className="input-group mt-3 mb-3">
-                                <input type="text" className="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
-                                <div className="input-group-append">
-                                    <button class="btn btn-secondary mr-2" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                        <div class="card mt-3" style={{ width: "100%", height: "96%" }}>
+                            <div class="card-body">
+                                <div className="row">
+                                    <form className="input-group mb-3 ml-2">
+                                        <input type="text" className="form-control" placeholder="Search a city" name="city" onChange={this.handleInputChange} value={this.state.city} />
+                                        <div className="input-group-append">
+                                            <button class="btn btn-secondary mr-2" type="submit" onClick={this.handleFormSubmit}>Search</button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
+                                <div className="row">
+                                    {this.state.cityError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.cityError}</div> : null}
+                                </div>
+                                <ul className="list-group" style={{ "overflowY": "scroll", "minHeight": "400px", "maxHeight": "660px"}}>
+                                    {this.state.sales.map(sale => {
+                                        return (
+                                            <li key={sale._id} className="list-group-item mb-3">
+                                                <h5><strong>{sale.title}</strong></h5>
+                                                <p>Description: {sale.description}</p>
+                                                <p>Start: {sale.startTime}</p>
+                                                <p>End: {sale.endTime}</p>
+                                                <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
+                                                <p>Posted on <Moment format="MM/DD/YYYY h:mma">{sale.createdAt}</Moment></p>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
                         </div>
-                        <div className="row">
-                            {this.state.cityError ? <div style={{ color: "red", fontSize: "20px" }}>{this.state.cityError}</div> : null}
-                        </div>
-                        <ul className="list-group" style={{ "overflowY": "scroll", "minHeight": "400px", "maxHeight": "430px" }}>
-                            {this.state.sales.map(sale => {
-                                return (
-                                    <li key={sale._id} className="list-group-item mb-3">
-                                        <h5><strong>{sale.title}</strong></h5>
-                                        <p>Description: {sale.description}</p>
-                                        <p>Start: {sale.startTime}</p>
-                                        <p>End: {sale.endTime}</p>
-                                        <p>Address: {sale.address}, {sale.city}, {sale.state} {sale.zip}</p>
-                                        <p>Posted on <Moment format="MM/DD/YYYY h:mma">{sale.createdAt}</Moment></p>
-                                    </li>
-                                )
-                            })}
-                        </ul>
                     </div>
                 </div>
             </div>

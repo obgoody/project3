@@ -6,6 +6,23 @@
 
 .navbar {
   padding: 0px !important;
+  background-color: rgb(167, 196, 167) !important;
+}
+
+.navbar-inverse .navbar-toggle {
+  color: #efefef !important;
+}
+
+.navbar-light .navbar-toggler-icon{
+  background-image: url(https://cdn3.iconfinder.com/data/icons/house-6/100/Icon_Garage_Door-512.png)!important;
+  }
+
+.navbar-inverse .navbar-toggle .icon-bar {
+  color: #efefef !important;
+}
+
+.nav-link {
+  color: white !important;
 }
 
 .nav-icon {
@@ -19,7 +36,7 @@
 }
 
 .nav-icon:hover {
-  background-color: #666 !important;
+  background-color: rgb(102, 102, 102) !important;
   color: #cccccc !important;
 }
 

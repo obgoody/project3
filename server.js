@@ -86,7 +86,23 @@ app.get("/populatedsales", function(req, res) {
   // Find all users
   db.AddSale.find({})
     // Specify that we want to populate the retrieved users with any associated notes
-    .populate({path:'user',model:'User'})
+    .populate("user")
+    .then(function(dbGarageSales) {
+      // If able to successfully find and associate all Users and Notes, send them back to the client
+      res.json(dbGarageSales);
+    })
+    .catch(function(err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
+    });
+});
+
+// Route to get all garage sales and populate them with their associated user
+app.get("/populateduser/:username", function(req, res) {
+  // Find all users
+  db.User.find({username: req.params.username})
+    // Specify that we want to populate the retrieved users with any associated notes
+    .populate("sales")
     .then(function(dbGarageSales) {
       // If able to successfully find and associate all Users and Notes, send them back to the client
       res.json(dbGarageSales);
