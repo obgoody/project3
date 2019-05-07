@@ -2,15 +2,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  position: relative;
+  min-height: 100vh;
 }
+
 .searchTool{
   text-align: center;
 }
+
 .dasbBoardh1{
   text-align: center;
 }
+
 .footer {
-  position: bottom;
+  position: absolute;
   bottom: 0;
   width: 100%;
   min-height: vh100;
@@ -19,6 +24,7 @@ body {
   text-align: center;
   margin-top: 25px;
 } 
+
 .page-container {
   position: relative;
   min-height: 100vh;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Geocode from "react-geocode";
 import API from "../utils/API";
 import AuthService from './../components/AuthService';
+import "../Styles/css/App.css";
 
 
 class Sale extends Component {
@@ -137,15 +138,15 @@ class Sale extends Component {
                                 <label for="image3">Image 3</label>
                                 <input type="text" className="form-control" name="image3" placeholder="yetAnotherImage.jpg" value={this.state.image3} onChange={this.handleInputChange} required />
                             </div>
-                            <button to="/search" type="submit" className="btn btn-primary" onClick={this.handleFormSubmit} data-toggle="modal" data-target="#exampleModal">Add!</button>
+                            <button to="/search" type="submit" className="btn btn-secondary" onClick={this.handleFormSubmit} data-toggle="modal" data-target="#exampleModal">Add!</button>
                             {/* Modal to confirm the sale was added and gives a summary */}
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Your sale has been added!</h5>
+                            <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog" role="document">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
+                                            <h5 className="modal-title" id="exampleModalLabel">Your sale has been added!</h5>
                                         </div>
-                                        <div class="modal-body">
+                                        <div className="modal-body">
                                             <h5>Summary</h5>
                                             <h6>Title: {this.state.title}</h6>
                                             <p>Description: {this.state.description}</p>
@@ -153,7 +154,7 @@ class Sale extends Component {
                                             <p>End: {this.state.endTime}</p>
                                             <p>Address: {this.state.address}, {this.state.city}, {this.state.state} {this.state.zip}</p>
                                         </div>
-                                        <div class="modal-footer">
+                                        <div className="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>

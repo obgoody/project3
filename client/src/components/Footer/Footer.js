@@ -19,7 +19,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <div className="footer">
+            <div className="footer" style={{backgroundColor: "#626e60"}}>
                 
                     <div className="container">
                         <div className="row text-center" id="signInFooter">
